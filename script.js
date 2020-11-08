@@ -1,6 +1,5 @@
 const contenedor = document.getElementById("contenedor");
 
-
 const getCharacters =async()=>{
   try {
     const res = await fetch("https://akabab.github.io/superhero-api/api/all.json");
@@ -13,31 +12,32 @@ const getCharacters =async()=>{
 const paintCharacters = async()=>{
   const data = await getCharacters()
   const fragment = document.createDocumentFragment();
-    for (const datos of data) {
-        //creando card
+    for (let i=1;i<=100;i++) {
         const card = document.createElement('section')
         const name = document.createElement("p");
         const title = document.createElement('p')
+        const numero = document.createElement('span')
+        numero.textContent = i
         card.classList.add('card')
-        name.textContent = datos.name;
+        name.textContent = data[i].name;
         title.textContent = 'Características'
         const powerStat = document.createElement("ul");
         const li_intelligence = document.createElement("li");
-        li_intelligence.textContent = `Inteligencia: ${datos.powerstats.intelligence}`;
+        li_intelligence.textContent = `Inteligencia: ${data[i].powerstats.intelligence}`;
         const li_strenght = document.createElement("li");
-        li_strenght.textContent = `Fuerza: ${datos.powerstats.strength}`;
+        li_strenght.textContent = `Fuerza: ${data[i].powerstats.strength}`;
         const li_speed = document.createElement("li");
-        li_speed.textContent = `Velocidad: ${datos.powerstats.speed}`;
+        li_speed.textContent = `Velocidad: ${data[i].powerstats.speed}`;
         const li_durability = document.createElement("li");
-        li_durability.textContent = `Durabilidad: ${datos.powerstats.durability}`;
+        li_durability.textContent = `Durabilidad: ${data[i].powerstats.durability}`;
         const li_power = document.createElement("li");
-        li_power.textContent = `Poder: ${datos.powerstats.power}`;
+        li_power.textContent = `Poder: ${data[i].powerstats.power}`;
         const li_combat = document.createElement("li");
-        li_combat.textContent = `Combate: ${datos.powerstats.combat}`;
+        li_combat.textContent = `Combate: ${data[i].powerstats.combat}`;
         const li_equipo = document.createElement('li')
-        li_equipo.textContent = `Editora: ${datos.biography.publisher}`
+        li_equipo.textContent = `Editora: ${data[i].biography.publisher}`
         const img = document.createElement('img')
-        img.src = `${datos.images.md}`
+        img.src = `${data[i].images.md}`
         powerStat.appendChild(li_intelligence);
         powerStat.appendChild(li_strenght);
         powerStat.appendChild(li_speed);
@@ -45,6 +45,7 @@ const paintCharacters = async()=>{
         powerStat.appendChild(li_power);
         powerStat.appendChild(li_combat);
         powerStat.appendChild(li_equipo)
+        card.appendChild(numero)
         card.appendChild(name)
         card.appendChild(img)
         card.appendChild(title)
@@ -53,5 +54,4 @@ const paintCharacters = async()=>{
     }
     contenedor.appendChild(fragment)
 }
-
 window.addEventListener('DOMContentLoaded',paintCharacters,false)
