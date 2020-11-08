@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Superhereos</title>
+    <link rel="stylesheet" href="dist/css/styles.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
+<header class="header"> 
+    <nav class="navbar">
+    <a href="#" class="navbar__item">Heróes</a>
+    <a href="#" class="navbar__item">Villanos</a>
+    <a href="#" class="navbar__item">Equipos</a>
+    <a href="#" class="navbar__item">Estadisticas</a>
+    </nav>
+     <div class="buscar">
+         <input type="search" name="buscar" id="buscar" class="buscar__input" placeholder="Buscar"><i
+             class="fab fa-searchengin"></i>
+     </div>
+</header>
 <body>
+<main>
+<div class="barra" id="barra">
+    <ul class="barra__opciones">
+        <li class="barra__opciones__item">Marvel Comics</li>
+        <li class="barra__opciones__item">Dc Comics</li>
+        <li class="barra__opciones__item">Todos</li>
+        <li class="barra__opciones__item">Favoritos</li>
+    </ul>
+</div>
+<article class="contenedor" id="contenedor">
     
+</article>
+</main>
+<footer class="footer">
+</footer>
+<script src="https://kit.fontawesome.com/9dd8b341bf.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
