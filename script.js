@@ -1,11 +1,18 @@
 const contenedor = document.getElementById("contenedor");
 
-const getSuperheroes = async (url = '') => {
-  url = "https://akabab.github.io/superhero-api/api/all.json";
+
+const getCharacters =async()=>{
   try {
-    const response = await axios(url);
-    const data = await response.data;
-    const fragment = document.createDocumentFragment();
+    const res = await fetch("https://akabab.github.io/superhero-api/api/all.json");
+    const data = await res.json()
+    return data;
+  } catch (error) {
+    console.log(error)
+  }
+}
+const paintCharacters = async()=>{
+  const data = await getCharacters()
+  const fragment = document.createDocumentFragment();
     for (const datos of data) {
         //creando card
         const card = document.createElement('section')
@@ -44,9 +51,7 @@ const getSuperheroes = async (url = '') => {
         card.appendChild(powerStat)
         fragment.appendChild(card)
     }
-    contenedor.appendChild(fragment);
-  } catch (error) {
-    console.log(error);
-  }
-};
-window.addEventListener('load',getSuperheroes,false)
+    contenedor.appendChild(fragment)
+}
+
+window.addEventListener('DOMContentLoaded',paintCharacters,false)
