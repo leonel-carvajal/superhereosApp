@@ -571,10 +571,22 @@ img {
   font-size: 1.5rem;
 }
 
+@media screen and (max-width: 360px) {
+  .navbar {
+    font-size: 1rem;
+  }
+}
+
 .navbar a {
   text-decoration: none;
   color: #fff;
   transition: transform 0.5s ease-in;
+}
+
+@media screen and (max-width: 360px) {
+  .navbar a {
+    color: yellow;
+  }
 }
 
 .navbar a:hover {
@@ -591,6 +603,12 @@ img {
   align-items: center;
 }
 
+@media screen and (max-width: 360px) {
+  .buscar {
+    flex-direction: column;
+  }
+}
+
 .buscar__rangos {
   height: 30px;
   width: 100px;
@@ -598,6 +616,12 @@ img {
   background-color: #212227;
   color: #fff;
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 360px) {
+  .buscar__rangos {
+    width: 100%;
+  }
 }
 
 .buscar__rangos option {
@@ -626,8 +650,21 @@ img {
   padding-left: 45px;
 }
 
+@media screen and (max-width: 360px) {
+  .buscar__input {
+    width: 70%;
+    font-size: 1rem;
+  }
+}
+
 .buscar__input:focus {
   width: 80%;
+}
+
+@media screen and (max-width: 360px) {
+  .buscar__input:focus {
+    width: 100%;
+  }
 }
 
 .buscar .fab {
@@ -656,6 +693,13 @@ img {
   align-items: center;
 }
 
+@media screen and (max-width: 360px) {
+  .barra__opciones {
+    flex-direction: column;
+    margin-left: -37px;
+  }
+}
+
 .barra__opciones__item {
   line-height: 2rem;
   background-color: #212227;
@@ -674,6 +718,12 @@ img {
   transition: transform 0.8s;
 }
 
+@media screen and (max-width: 360px) {
+  .barra__opciones__item {
+    font-size: 1rem;
+  }
+}
+
 .barra__opciones__item:hover {
   transform: rotateX(-350deg);
   text-shadow: -6px -6px 6px black;
@@ -686,6 +736,35 @@ img {
   place-content: center;
   gap: 10px 30px;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 360px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 360px) and (orientation: landscape) {
+  .contenedor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 361px) {
+  .contenedor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .contenedor {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    place-items: center;
+    place-content: center;
+    gap: 10px 30px;
+    margin-top: 10px;
+  }
 }
 
 .card {
