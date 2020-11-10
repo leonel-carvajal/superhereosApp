@@ -1,18 +1,20 @@
 const contenedor = document.getElementById("contenedor");
+const rangos = document.getElementById('rangos')
 
 const getCharacters =async()=>{
   try {
-    const res = await fetch("https://akabab.github.io/superhero-api/api/all.json");
+    const res = await fetch('https://akabab.github.io/superhero-api/api/all.json')
     const data = await res.json()
     return data;
   } catch (error) {
     console.log(error)
   }
 }
-const paintCharacters = async()=>{
+const paintCharacters = async(rango)=>{
   const data = await getCharacters()
+  rango = Math.round(Math.random*100)
   const fragment = document.createDocumentFragment();
-    for (let i=1;i<=100;i++) {
+    for (let i=1;i<=rango;i++) {
         const card = document.createElement('section')
         const name = document.createElement("p");
         const title = document.createElement('p')
@@ -53,5 +55,7 @@ const paintCharacters = async()=>{
         fragment.appendChild(card)
     }
     contenedor.appendChild(fragment)
-}
+  }
+  rangos.addEventListener('change',(e)=>{
+})
 window.addEventListener('DOMContentLoaded',paintCharacters,false)

@@ -9,53 +9,79 @@ img {
 }
 
 .header {
-  line-height: 2.2rem;
+  line-height: 4rem;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .navbar {
-  background-color: #637074;
+  background-color: royalblue;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
 .navbar a {
   text-decoration: none;
   color: #fff;
+  transition: transform 0.4s ease-in;
 }
 
 .navbar a:hover {
-  color: #212227;
+  color: #ffff00;
+  text-shadow: -7px -7px 4px #000;
+  transform: rotateY(180deg);
 }
 
 .buscar {
+  margin-left: 10px;
   margin-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.buscar__rangos {
+  height: 30px;
+  width: 100px;
+  background-color: #212227;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.buscar__rangos option {
+  background-color: #212227;
+  color: #fff;
+}
+
 .buscar__input {
   line-height: 1.4rem;
   margin-bottom: 5px;
   margin-right: 5px;
-  width: 80%;
+  width: 60%;
   border: none;
   outline: none;
   border-bottom: 1px solid #212227;
   font-size: 1.5rem;
+  background-color: #212227;
+  color: #fff;
+  border-radius: 20px;
+  transition: width 0.4s;
+}
+
+.buscar__input:focus {
+  width: 80%;
 }
 
 .buscar .fab {
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: #212227;
 }
 
 .barra {
-  height: 350px;
+  margin-top: -16px;
+  height: 500px;
   width: 100%;
   border-radius: 3px;
   color: #fff;
@@ -90,12 +116,12 @@ img {
   align-items: center;
   cursor: pointer;
   font-weight: bolder;
-  text-shadow: -3px -3px 6px #0906d1;
-  transition: transform 0.5s;
+  transition: transform 0.8s;
 }
 
 .barra__opciones__item:hover {
-  transform: rotate(-10deg);
+  transform: rotateX(-350deg);
+  text-shadow: -6px -6px 6px #239dd6;
 }
 
 .contenedor {

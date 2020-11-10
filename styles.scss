@@ -1,6 +1,9 @@
 $color-Nav:#637074;
 $color-texto:#fff;
 $color-texto_2:#212227;
+$color-Nav2:royalblue;
+$color-hover:#ffff00;
+
 body{
     margin: 0;
     padding: 0;
@@ -10,46 +13,69 @@ img{
     object-fit: cover;
 }
 .header{
-    line-height: 2.2rem;
+    line-height: 4rem;
     color:$color-texto;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 .navbar{
-     background-color:$color-Nav;
+     background-color:$color-Nav2;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     & a{
         text-decoration: none;
         color: $color-texto;
+        transition: transform 0.4s ease-in;
         &:hover{
-            color:$color-texto_2;
+            color:$color-hover;
+            text-shadow: -7px -7px 4px #000;
+            transform: rotateY(180deg);
         }
     }
 }
 .buscar{
+    margin-left: 10px;
     margin-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    &__rangos{
+        height: 30px;
+        width: 100px;
+        background-color: $color-texto_2;
+        color: $color-texto;
+        font-size: 1.2rem;
+        & option{
+            background-color: $color-texto_2;
+            color: $color-texto;
+        }
+    }
 &__input{
     line-height: 1.4rem;
     margin-bottom: 5px;
     margin-right: 5px;
-    width: 80%;
+    width: 60%;
     border: none;
     outline: none;
     border-bottom: 1px solid $color-texto_2;
     font-size: 1.5rem;
+    background-color: $color-texto_2;
+    color: $color-texto;
+    border-radius: 20px;
+    transition: width 0.4s;
+    &:focus{
+        width: 80%;
+    }
 }
 .fab{
-    font-size: 5rem;
+    font-size: 2rem;
     color: $color-texto_2;
     }
 }
 .barra{
-    height: 350px;
+    margin-top: -16px;
+    height: 500px;
     width: 100%;
     border-radius: 3px;
     color: $color-texto;
@@ -80,10 +106,10 @@ img{
             align-items: center;
             cursor: pointer;
             font-weight: bolder;
-            text-shadow: -3px -3px 6px #0906d1;
-            transition: transform 0.5s;
+            transition: transform 0.8s;
             &:hover{
-                transform: rotate(-10deg);
+                transform: rotateX(-350deg);
+                text-shadow: -6px -6px 6px #239dd6;
             }
         }
     }
