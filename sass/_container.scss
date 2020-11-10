@@ -1,0 +1,24 @@
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    place-items: center;
+    place-content: center;
+    gap: 10px 30px;
+    margin-top: 10px;
+}
+
+.card {
+    background-color: #000;
+    color: #fff;
+}
+
+.info {
+    text-decoration: underline;
+    cursor: pointer;
+    color: lime;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

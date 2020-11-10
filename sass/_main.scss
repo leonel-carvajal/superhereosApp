@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        background-color: #637074;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-texto_2;
+        border-radius: 10px;
+    }
+}
+main {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}

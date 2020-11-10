@@ -1,0 +1,74 @@
+.navbar {
+    background-color: $color-texto_2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 3rem;
+    font-size: 1.5rem;
+
+    & a {
+        text-decoration: none;
+        color: $color-texto;
+        transition: transform 0.5s ease-in;
+
+        &:hover {
+            color: $color-hover;
+            text-shadow: -7px -7px 4px #000;
+            transform: rotateY(180deg);
+        }
+
+    }
+}
+
+.buscar {
+    margin-left: 10px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__rangos {
+        height: 30px;
+        width: 100px;
+        border-radius: 10px;
+        background-color: $color-texto_2;
+        color: $color-texto;
+        font-size: 1.2rem;
+
+        & option {
+            background-color: $color-texto_2;
+            color: $color-texto;
+            border-radius: 10px;
+        }
+    }
+
+    &__input {
+        line-height: 1.4rem;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        width: 60%;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid $color-texto_2;
+        font-size: 1.5rem;
+        background-color: $color-texto_2;
+        background-image: url('/img/search2.svg');
+        background-repeat: no-repeat;
+        background-size: 24px;
+        background-position: 10px;
+        color: $color-texto;
+        border-radius: 20px;
+        transition: width 0.4s;
+        padding-left: 45px;
+
+        &:focus {
+            width: 80%;
+        }
+    }
+
+    .fab {
+        font-size: 2rem;
+        color: $color-texto_2;
+    }
+}
