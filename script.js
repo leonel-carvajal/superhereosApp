@@ -10,7 +10,7 @@ const getCharacters =async()=>{
     console.log(error)
   }
 }
-const pintar = async (rango)=>{
+const pintar = async (rango,name = '')=>{
    const data = await getCharacters()
   const fragment = document.createDocumentFragment();
   for (let i = 1; i <= rango; i++) {
@@ -56,7 +56,7 @@ const pintar = async (rango)=>{
   contenedor.appendChild(fragment);
 }
 const paintCharacters = (rango )=>{
-  rango =12
+  rango =50
   pintar(rango)
   
   }
@@ -67,7 +67,6 @@ const paintCharacters = (rango )=>{
    }else{
      contenedor.innerHTML = ''
      pintar(rango)
-
    }
  })
 window.addEventListener('DOMContentLoaded',paintCharacters,false)

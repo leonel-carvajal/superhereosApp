@@ -5,10 +5,11 @@ body {
 
 body::-webkit-scrollbar {
   width: 7px;
+  background-color: #637074;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: royalblue;
+  background-color: #212227;
   border-radius: 10px;
 }
 
@@ -49,13 +50,19 @@ img {
 .navbar a {
   text-decoration: none;
   color: #fff;
-  transition: transform 0.4s ease-in;
+  transition: transform 0.5s;
 }
 
-.navbar a:hover {
+.navbar a:hover:nth-child(even) {
   color: #ffff00;
   text-shadow: -7px -7px 4px #000;
-  transform: rotateY(180deg);
+  transform: skewY(20deg);
+}
+
+.navbar a:hover:nth-child(odd) {
+  color: #ffff00;
+  text-shadow: -7px -7px 4px #fff;
+  transform: skewY(-20deg);
 }
 
 .buscar {
