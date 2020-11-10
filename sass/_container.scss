@@ -5,6 +5,12 @@
     place-content: center;
     gap: 10px 30px;
     margin-top: 10px;
+    @include mobile{
+        grid-template-columns: 1fr;
+    }
+    @media screen  and(min-width:360px) and (orientation:landscape){
+        grid-template-columns: repeat(2,1fr);
+    }
 }
 
 .card {
