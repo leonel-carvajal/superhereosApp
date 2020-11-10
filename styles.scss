@@ -1,3 +1,4 @@
+/*
 $color-Nav:#637074;
 $color-texto:#fff;
 $color-texto_2:#212227;
@@ -168,7 +169,7 @@ img {
     grid-template-columns: repeat(4, 300px);
     place-items: center;
     place-content: center;
-    gap: 15px 50px;
+    gap: 1px 50px;
     margin-top: 10px;
 }
 
@@ -185,4 +186,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}*/
+@import 'sass/resetlist';
+@import 'sass/colors';
+@import 'sass/mixins';
+@import 'sass/main';
+@import 'sass/navbar';
+@import 'sass/barra';
+@import 'sass/container'
