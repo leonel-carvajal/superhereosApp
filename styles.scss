@@ -7,6 +7,7 @@ $color-hover:#ffff00;
 body {
     margin: 0;
     padding: 0;
+    background-color: #ccc;
 
     &::-webkit-scrollbar {
         width: 7px;
@@ -55,19 +56,14 @@ img {
     & a {
         text-decoration: none;
         color: $color-texto;
-        transition: transform 0.5s;
+        transition: transform 0.5s ease-in;
 
-        &:hover:nth-child(even) {
+        &:hover {
             color: $color-hover;
             text-shadow: -7px -7px 4px #000;
-            transform: skewY(20deg);
+            transform: rotateY(180deg);
         }
 
-        &:hover:nth-child(odd) {
-            color: $color-hover;
-            text-shadow: -7px -7px 4px #fff;
-            transform: skewY(-20deg);
-        }
     }
 }
 
@@ -103,9 +99,14 @@ img {
         border-bottom: 1px solid $color-texto_2;
         font-size: 1.5rem;
         background-color: $color-texto_2;
+        background-image: url('/img/search2.svg');
+        background-repeat:no-repeat;
+        background-size: 24px;
+        background-position: 10px;
         color: $color-texto;
         border-radius: 20px;
         transition: width 0.4s;
+        padding-left: 45px;
 
         &:focus {
             width: 80%;
@@ -167,11 +168,21 @@ img {
     grid-template-columns: repeat(4, 300px);
     place-items: center;
     place-content: center;
-    gap: 10px 30px;
+    gap: 15px 50px;
     margin-top: 10px;
 }
 
 .card {
-    background-color: #585050;
+    background-color: #000;
     color: #fff;
+}
+.info{
+    text-decoration: underline;
+    cursor: pointer;
+    color: lime;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

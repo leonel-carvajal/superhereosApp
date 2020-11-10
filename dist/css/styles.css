@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #ccc;
 }
 
 body::-webkit-scrollbar {
@@ -50,19 +51,13 @@ img {
 .navbar a {
   text-decoration: none;
   color: #fff;
-  transition: transform 0.5s;
+  transition: transform 0.5s ease-in;
 }
 
-.navbar a:hover:nth-child(even) {
+.navbar a:hover {
   color: #ffff00;
   text-shadow: -7px -7px 4px #000;
-  transform: skewY(20deg);
-}
-
-.navbar a:hover:nth-child(odd) {
-  color: #ffff00;
-  text-shadow: -7px -7px 4px #fff;
-  transform: skewY(-20deg);
+  transform: rotateY(180deg);
 }
 
 .buscar {
@@ -98,9 +93,14 @@ img {
   border-bottom: 1px solid #212227;
   font-size: 1.5rem;
   background-color: #212227;
+  background-image: url("/img/search2.svg");
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 10px;
   color: #fff;
   border-radius: 20px;
   transition: width 0.4s;
+  padding-left: 45px;
 }
 
 .buscar__input:focus {
@@ -161,12 +161,23 @@ img {
   grid-template-columns: repeat(4, 300px);
   place-items: center;
   place-content: center;
-  gap: 10px 30px;
+  gap: 15px 50px;
   margin-top: 10px;
 }
 
 .card {
-  background-color: #585050;
+  background-color: #000;
   color: #fff;
+}
+
+.info {
+  text-decoration: underline;
+  cursor: pointer;
+  color: lime;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*# sourceMappingURL=styles.css.map */
