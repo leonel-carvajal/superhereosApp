@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #ccc;
+    background-color: #2d2f38;
 
     &::-webkit-scrollbar {
         width: 7px;
@@ -19,5 +19,5 @@ main {
 
 img {
     max-width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }

@@ -17,21 +17,22 @@ const Paint = async()=>{
         const img = document.createElement('img')
         const tdImg =document.createElement('td')
         const tdId = document.createElement('td')
-        tdId.textContent = `${data.id}`
+        let id = parseInt(data.id)
+        tdId.textContent = `${id}`
         const tdName = document.createElement('td')
         tdName.textContent = `${data.name}`
         const tdInte = document.createElement('td')
-        tdInte.textContent = `${data.powerstats.intelligence}`
+        tdInte.textContent = `${parseInt(data.powerstats.intelligence)}`
         const tdfuerza = document.createElement('td')
-        tdfuerza.textContent = `${data.powerstats.strength}`
+        tdfuerza.textContent = `${parseInt(data.powerstats.strength)}`
         const tdVelo = document.createElement('td')
-        tdVelo.textContent = `${data.powerstats.speed}`
+        tdVelo.textContent = `${parseInt(data.powerstats.speed)}`
         const tdDura = document.createElement('td')
-        tdDura.textContent = `${data.powerstats.durability}`
+        tdDura.textContent = `${parseInt(data.powerstats.durability)}`
         const tdpoder = document.createElement('td')
-        tdpoder.textContent = `${data.powerstats.power}`
+        tdpoder.textContent = `${parseInt(data.powerstats.power)}`
         const tdcomba =document.createElement('td')
-        tdcomba.textContent = `${data.powerstats.combat}`
+        tdcomba.textContent = `${parseInt(data.powerstats.combat)}`
         img.src = `${data.images.xs}`
         tdImg.appendChild(img)
         TR.appendChild(tdImg)

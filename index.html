@@ -21,15 +21,25 @@
     <main>
         <div class="barra" id="barra">
             <ul class="barra__opciones">
-                <a href="/"><li class="barra__opciones__item">Marvel Comics</li></a>
-                <a href="/"><li class="barra__opciones__item">Dc Comics</li></a>
-                <a href="pages/all.html"><li class="barra__opciones__item">Todos</li></a>
-                <a href="/"><li class="barra__opciones__item">Favoritos</li></a>
+                <a href="/">
+                    <li class="barra__opciones__item">Marvel Comics</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Dc Comics</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Home</li>
+                </a>
+                <a href="pages/all.html">
+                    <li class="barra__opciones__item">Todos</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Favoritos</li>
+                </a>
             </ul>
         </div>
         <div class="buscar">
-            <input type="search" name="buscar" id="buscar" class="buscar__input"
-                placeholder="Buscar">
+            <input type="search" name="buscar" id="buscar" class="buscar__input" placeholder="Buscar">
             <select name="rangos" id="rangos" class="buscar__rangos">
                 <option value="0">-Filtro-</option>
                 <option value="10">10</option>
@@ -43,6 +53,37 @@
         </div>
         <article class="contenedor" id="contenedor">
         </article>
+        <div class="modal" id="modal">
+            <div class="modal__content" id="modal__content">
+                <div id="titulos" class="modal__content__titulos">
+                    <p id="modal_name" class="titulos__name"></p>
+                    <img src="" alt="" id="img1">
+                </div>
+                <div class="modal__content__caracteristicas">
+                    <ul id="modal_cara">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="modal__content__apariencia" id="apariencia">
+                        <ul id="modal_apa">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
     </main>
     <footer class="footer">
     </footer>

@@ -5,7 +5,7 @@
     border-radius: 3px;
     color: $color-texto;
     box-shadow: 3px 3px 3px $color-texto_2;
-    background-image: url('/img/fondo.jpg');
+    background-image: url('/img/fondo3.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -15,10 +15,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        flex-wrap: wrap;
         align-items: center;
         @include mobile{
-            flex-direction: column;
-            margin-left: -37px;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+
         }
         a{
             text-decoration: none;
@@ -27,6 +29,7 @@
         &__item {
             @include mobile{
                 font-size: 1rem;
+                width: 150px;
             }
             line-height: 2rem;
             background-color: $color-texto_2;

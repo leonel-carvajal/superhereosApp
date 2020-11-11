@@ -1,10 +1,10 @@
 //constantes
 const contenedor = document.getElementById("contenedor");
 const rangos = document.getElementById('rangos')
-const buscar  = document.getElementById('buscar')
+const buscar = document.getElementById('buscar')
 
 
-const getCharacters =async()=>{
+const getCharacters = async () => {
   try {
     const res = await fetch('https://akabab.github.io/superhero-api/api/all.json')
     const data = await res.json()
@@ -13,7 +13,7 @@ const getCharacters =async()=>{
     console.log(error)
   }
 }
-const pintar = async (rango = 0)=>{
+const pintar = async (rango = 0) => {
   const data = await getCharacters()
   const fragment = document.createDocumentFragment();
   for (let i = 1; i <= rango; i++) {
@@ -21,7 +21,7 @@ const pintar = async (rango = 0)=>{
     const name = document.createElement("p");
     const title = document.createElement("p");
     const numero = document.createElement("span");
-    numero.textContent = i;
+    numero.textContent = data[i].id;
     card.classList.add("card");
     name.textContent = data[i].name;
     title.textContent = "Características";
@@ -57,84 +57,142 @@ const pintar = async (rango = 0)=>{
     fragment.appendChild(card);
   }
   contenedor.appendChild(fragment);
-}
-const filterName  = async(data)=>{
-  const datos =  await getCharacters()
-  const fragment = document.createDocumentFragment()
-    if(data.length>=3){
-      for (let i = 0; i < datos.length; i++) {
-        //const element = datos[i];
-          if(datos[i].name===data){
-            contenedor.innerHTML  =''
-            const card = document.createElement("section");
-            const name = document.createElement("p");
-            const title = document.createElement("p");
-            const numero = document.createElement("span");
-            numero.textContent = i;
-            card.classList.add("card");
-            name.textContent = datos[i].name;
-            title.textContent = "Características";
-            const powerStat = document.createElement("ul");
-            const li_intelligence = document.createElement("li");
-            li_intelligence.textContent = `Inteligencia: ${datos[i].powerstats.intelligence}`;
-            const li_strenght = document.createElement("li");
-            li_strenght.textContent = `Fuerza: ${datos[i].powerstats.strength}`;
-            const li_speed = document.createElement("li");
-            li_speed.textContent = `Velocidad: ${datos[i].powerstats.speed}`;
-            const li_durability = document.createElement("li");
-            li_durability.textContent = `Durabilidad: ${datos[i].powerstats.durability}`;
-            const li_power = document.createElement("li");
-            li_power.textContent = `Poder: ${datos[i].powerstats.power}`;
-            const li_combat = document.createElement("li");
-            li_combat.textContent = `Combate: ${datos[i].powerstats.combat}`;
-            const li_equipo = document.createElement("li");
-            li_equipo.textContent = `Editora: ${datos[i].biography.publisher}`;
-            const img = document.createElement("img");
-            img.src = `${datos[i].images.md}`;
-            const link = document.createElement('a')
-            link.setAttribute('hfef','#')
-            link.classList.add('info')
-            link.textContent = 'Información Adicional'
-            powerStat.appendChild(li_intelligence);
-            powerStat.appendChild(li_strenght);
-            powerStat.appendChild(li_speed);
-            powerStat.appendChild(li_durability);
-            powerStat.appendChild(li_power);
-            powerStat.appendChild(li_combat);
-            powerStat.appendChild(li_equipo);
-            card.appendChild(numero);
-            card.appendChild(name);
-            card.appendChild(img);
-            card.appendChild(title);
-            card.appendChild(powerStat);
-            card.appendChild(link)
-            fragment.appendChild(card);
-          } 
-          contenedor.appendChild(fragment)
-      }
-    } else if(data.length<2){
-      contenedor.innerHTML = ''
-      paintCharacters(25)
+//---------------------------------
+  const secciones = document.getElementsByTagName('section')
+  const modal = document.getElementById('modal')
+  const modal_content = document.getElementById('modal__content')
+  const img = document.getElementById('img1')
+  const fragment2 = document.createDocumentFragment()
+ const modalName = document.getElementById('modal_name')
+ const modalTitulo = document.getElementById('titulos')
+ const modalCara =document.getElementById('modal_cara')
+ const modalApa = document.getElementById('modal_apa')
+ //--------------------------------------------
+  for (const cards of secciones) {
+    // const img = document.createElement('img')
+    cards.addEventListener('click', () => {
+      modal.classList.add('show')
+      fetch(`https://akabab.github.io/superhero-api/api/id/${cards.childNodes[0].textContent}.json`)
+        .then(res => res.json())
+        .then(data => {
+          modalName.textContent = data.name
+          img.src = data.images.sm
+          modalCara.children[0].textContent = 'Características'
+          modalCara.children[1].textContent = `Inteligencia: ${data.powerstats.intelligence}`
+          modalCara.children[2].textContent = `Fuerza: ${data.powerstats.strength}`
+          modalCara.children[3].textContent = `Velocidad: ${data.powerstats.speed}`
+          modalCara.children[4].textContent = `Durabilidad: ${data.powerstats.durability}`
+          modalCara.children[5].textContent = `Poder: ${data.powerstats.power}`
+          modalCara.children[6].textContent = `Combate: ${data.powerstats.combat}`
+          modalCara.children[7].textContent = `Editora: ${data.biography.publisher}`
+
+          modalApa.children[0].textContent = 'Apariencia'
+          modalApa.children[1].textContent = `Genero: ${data.appearance.gender}`
+          modalApa.children[2].textContent = `Raza: ${data.appearance.race}`
+          modalApa.children[3].textContent = `Altura: ${data.appearance.height[1]}`
+          modalApa.children[4].textContent = `Peso: ${data.appearance.weight[1]}`
+          modalApa.children[5].textContent = `Ojos: ${data.appearance.eyeColor}`
+          modalApa.children[6].textContent = `Cabello: ${data.appearance.hairColor}`
+          
+        })
+      })
+      modalTitulo.appendChild(modalName)
+      modalTitulo.appendChild(img)
+      fragment2.appendChild(modalTitulo)
     }
+    modal_content.appendChild(fragment2)
+  modal.addEventListener('click', () => {
+    modal.classList.remove('show')
+  })
+
 }
-buscar.addEventListener('keyup' ,(e) =>{
-  if(buscar.value!=''){
+const filterName = async (data) => {
+  const datos = await getCharacters()
+  const fragment = document.createDocumentFragment()
+  if (data.length >= 3) {
+    for (let i = 0; i < datos.length; i++) {
+      //const element = datos[i];
+      if (datos[i].name === data) {
+        contenedor.innerHTML = ''
+        const card = document.createElement("section");
+        const name = document.createElement("p");
+        const title = document.createElement("p");
+        const numero = document.createElement("span");
+        numero.textContent = datos[i].id;
+        card.classList.add("card");
+        card.setAttribute('id', 'card')
+        name.textContent = datos[i].name;
+        title.textContent = "Características";
+        const powerStat = document.createElement("ul");
+        const li_intelligence = document.createElement("li");
+        li_intelligence.textContent = `Inteligencia: ${datos[i].powerstats.intelligence}`;
+        const li_strenght = document.createElement("li");
+        li_strenght.textContent = `Fuerza: ${datos[i].powerstats.strength}`;
+        const li_speed = document.createElement("li");
+        li_speed.textContent = `Velocidad: ${datos[i].powerstats.speed}`;
+        const li_durability = document.createElement("li");
+        li_durability.textContent = `Durabilidad: ${datos[i].powerstats.durability}`;
+        const li_power = document.createElement("li");
+        li_power.textContent = `Poder: ${datos[i].powerstats.power}`;
+        const li_combat = document.createElement("li");
+        li_combat.textContent = `Combate: ${datos[i].powerstats.combat}`;
+        const li_equipo = document.createElement("li");
+        li_equipo.textContent = `Editora: ${datos[i].biography.publisher}`;
+        const img = document.createElement("img");
+        img.src = `${datos[i].images.md}`;
+        const link = document.createElement('a')
+        powerStat.appendChild(li_intelligence);
+        powerStat.appendChild(li_strenght);
+        powerStat.appendChild(li_speed);
+        powerStat.appendChild(li_durability);
+        powerStat.appendChild(li_power);
+        powerStat.appendChild(li_combat);
+        powerStat.appendChild(li_equipo);
+        card.appendChild(numero);
+        card.appendChild(name);
+        card.appendChild(img);
+        card.appendChild(title);
+        card.appendChild(powerStat);
+        card.classList.toggle('find')
+        fragment.appendChild(card);
+      }
+      contenedor.appendChild(fragment)
+    }
+  } else {
+    contenedor.innerHTML = ''
+    paintCharacters(25)
+  }
+  const secciones = document.getElementsByTagName('section')
+  const modal = document.getElementById('modal')
+  for (const cards of secciones) {
+    cards.addEventListener('click', () => {
+      modal.classList.add('show')
+    })
+  }
+  modal.addEventListener('click', () => {
+    modal.classList.remove('show')
+  })
+
+}
+buscar.addEventListener('keyup', (e) => {
+  if (buscar.value != '') {
     filterName(e.target.value)
   }
 })
-const paintCharacters = (rango )=>{
-  rango =25
+const paintCharacters = (rango) => {
+  rango = 24
   pintar(rango)
-  
+
+}
+rangos.addEventListener('change', (e) => {
+  document.getElementById('buscar').value = ''
+  rango = e.target.value
+  if (rango == 0) {
+    contenedor.innerHTML = `<h1 class="anuncio">Sin datos</h1>`
+  } else {
+    contenedor.innerHTML = ''
+    pintar(rango)
   }
- rangos.addEventListener('change',(e)=>{
-   document.getElementById('buscar').value = ''
-   rango = e.target.value
-   if(rango==0){
-     contenedor.innerHTML =`<h1 class="anuncio">Sin datos</h1>`
-   }else{
-     contenedor.innerHTML = ''
-     pintar(rango)
-   }
- })
-window.addEventListener('DOMContentLoaded',paintCharacters,false)
+})
+
+window.addEventListener('DOMContentLoaded', paintCharacters, false)
