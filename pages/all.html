@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Characters</title>
+    <link rel="stylesheet" href="../dist/css/styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../lib/sortable-master/css/sortable-theme-dark.css">
+    <style>
+        main {
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<header class="header">
+    <nav class="navbar">
+        <a href="#" class="navbar__item">Heróes</a>
+        <a href="#" class="navbar__item">Villanos</a>
+        <a href="#" class="navbar__item">Equipos</a>
+        <a href="#" class="navbar__item">Estadisticas</a>
+    </nav>
+</header>
+
+<body>
+    <main>
+        <div class="barra" id="barra">
+            <ul class="barra__opciones">
+                <a href="/">
+                    <li class="barra__opciones__item">Marvel Comics</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Dc Comics</li>
+                </a>
+                <a href="all.html">
+                    <li class="barra__opciones__item">Todos</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Favoritos</li>
+                </a>
+            </ul>
+        </div>
+        <h1>Resumen</h1>
+        <table id="table" class="sortable-theme-dark" data-sortable>
+            <thead>
+                <tr class="table__title">
+                    <th></th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>Inteligencia</th>
+                    <th>Fuerza</th>
+                    <th>Velocidad</th>
+                    <th>Durabilidad</th>
+                    <th>Poder</th>
+                    <th>Combate</th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+            <tfoot>
+                
+            </tfoot>
+        </table>
+    </main>
+    <script src="../lib/sortable-master/js/sortable.min.js"></script>
+    <script src="/script/table.js"></script>
+</body>
+
+</html>
