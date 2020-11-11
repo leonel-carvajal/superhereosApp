@@ -20,6 +20,9 @@
             flex-direction: column;
             margin-left: -37px;
         }
+        a{
+            text-decoration: none;
+        }
 
         &__item {
             @include mobile{

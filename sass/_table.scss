@@ -1,0 +1,23 @@
+#table{
+    width: 100%;
+    border-radius: 7px;
+}
+.table__title{
+    background-color: rgba(58, 207, 58,0.5);
+    font-weight: bolder;
+}
+th,td{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+td img{
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+th{
+    font-size: 1.2rem;
+    line-height: 2rem;
+    cursor: pointer;
+}
