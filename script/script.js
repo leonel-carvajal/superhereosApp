@@ -131,7 +131,7 @@ const pintar = async (rango = 0) => {
 const filterName = async (data) => {
   const datos = await getCharacters()
   const fragment = document.createDocumentFragment()
-  if (data.length >= 3) {
+  if (data.length >1) {
     for (let i = 0; i < datos.length; i++) {
       if (datos[i].name === data) {
         contenedor.innerHTML = ''
@@ -204,7 +204,7 @@ buscar.addEventListener('keyup', (e) => {
 
 })
 const paintCharacters = (rango) => {
-  rango = 25
+  rango = 24
   pintar(rango)
 
 }
