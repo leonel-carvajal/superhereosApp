@@ -54,7 +54,7 @@ const f = ()=>{
           modalApa.children[6].textContent = `Cabello: ${data.appearance.hairColor}`
 
           modalBio.children[0].textContent = 'Biografía'
-          modalBio.children[1].textContent = `Nombre completo: ${data.biography.fullname}`
+          modalBio.children[1].textContent = `Nombre completo: ${data.biography.fullName}`
           modalBio.children[2].textContent = `Alter Ego: ${data.biography.alterEgos}`
           modalBio.children[3].textContent = `Alias: ${data.biography.aliases}`
           modalBio.children[4].textContent = `Lugar Nacimiento: ${data.biography.placeOfBirth}`
