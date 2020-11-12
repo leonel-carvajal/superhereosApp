@@ -7,13 +7,14 @@
     <title>Hereoes and Villains</title>
     <link rel="stylesheet" href="dist/css/styles.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="/li/c3-0.7.20/docs/css/c3.min.css"> -->
 </head>
 <header class="header">
     <nav class="navbar">
-        <a href="#" class="navbar__item">Heróes</a>
-        <a href="#" class="navbar__item">Villanos</a>
-        <a href="#" class="navbar__item">Equipos</a>
-        <a href="#" class="navbar__item">Estadisticas</a>
+        <a href="/pages/heroes.html" class="navbar__item">Heróes</a>
+        <a href="/pages/villains.html" class="navbar__item">Villanos</a>
+        <a href="/pages/temas.html" class="navbar__item">Equipos</a>
+        <a href="/pages/stats.html" class="navbar__item">Estadisticas</a>
     </nav>
 </header>
 
@@ -21,10 +22,10 @@
     <main>
         <div class="barra" id="barra">
             <ul class="barra__opciones">
-                <a href="/">
+                <a href="/pages/marvel.html">
                     <li class="barra__opciones__item">Marvel Comics</li>
                 </a>
-                <a href="/">
+                <a href="/pages/dc.html">
                     <li class="barra__opciones__item">Dc Comics</li>
                 </a>
                 <a href="/">
@@ -33,7 +34,7 @@
                 <a href="pages/all.html">
                     <li class="barra__opciones__item">Todos</li>
                 </a>
-                <a href="/">
+                <a href="/pages//favorites.html">
                     <li class="barra__opciones__item">Favoritos</li>
                 </a>
             </ul>
@@ -59,7 +60,7 @@
                     <p id="modal_name" class="titulos__name"></p>
                     <img src="" alt="" id="img1">
                 </div>
-                <div class="modal__content__caracteristicas">
+                <div class="modal__content__caracteristicas" id="chart">
                     <ul id="modal_cara">
                         <li></li>
                         <li></li>
@@ -119,7 +120,9 @@
             <li class="footer__paginacion__item">item4</li>
         </ul>
     </footer>
-    <script src="https://kit.fontawesome.com/9dd8b341bf.js" crossorigin="anonymous"></script>
+    <!-- <script src="/li/c3-0.7.20/docs/js/d3-5.8.2.min.js"></script>
+    <script src="/li/c3-0.7.20/docs/js/c3.min.js"></script> -->
+    <!-- //<script src="https://kit.fontawesome.com/9dd8b341bf.js" crossorigin="anonymous"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/script/script.js"></script>
 </body>
