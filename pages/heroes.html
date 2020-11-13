@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero's</title>
+    <link rel="stylesheet" href="/dist/css/styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        .barra__opciones {
+            align-items: flex-end;
+        }
+
+    </style>
+</head>
+<header class="header">
+    <nav class="navbar">
+        <a href="/pages/heroes.html" class="navbar__item">Heróes</a>
+        <a href="/pages/villains.html" class="navbar__item">Villanos</a>
+        <a href="/pages/temas.html" class="navbar__item">Equipos</a>
+        <a href="/pages/stats.html" class="navbar__item">Estadisticas</a>
+    </nav>
+</header>
+
+<body>
+    <main>
+        <div class="barra" id="barra">
+            <div class="banner">Hello Hero's
+            </div>
+            <ul class="barra__opciones">
+                <a href="/pages/marvel.html">
+                    <li class="barra__opciones__item">Marvel Comics</li>
+                </a>
+                <a href="/pages/dc.html">
+                    <li class="barra__opciones__item">Dc Comics</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Home</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Todos</li>
+                </a>
+                <a href="/pages//favorites.html">
+                    <li class="barra__opciones__item">Favoritos</li>
+                </a>
+            </ul>
+        </div>
+        <article class="contenedor" id="contenedor">
+        </article>
+        <div class="modal" id="modal">
+            <div class="modal__content" id="modal__content">
+                <div id="titulos" class="modal__content__titulos">
+                    <p id="modal_name" class="titulos__name"></p>
+                    <img src="" alt="" id="img1">
+                </div>
+                <div class="modal__content__caracteristicas" id="chart">
+                    <ul id="modal_cara">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="modal__content__apariencia">
+                    <ul id="modal_apa">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="modal__content__biografia">
+                    <ul id="modal_bio">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="modal__content__trabajo">
+                    <ul id="modal_work">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="modal__content__conexion">
+                    <ul id="modal_conexion">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <ul class="footer__paginacion">
+            <li class="footer__paginacion__item">item1</li>
+            <li class="footer__paginacion__item">item2</li>
+            <li class="footer__paginacion__item">item3</li>
+            <li class="footer__paginacion__item">item4</li>
+        </ul>
+    </footer>
+    <!-- <script src="/li/c3-0.7.20/docs/js/d3-5.8.2.min.js"></script>
+    <script src="/li/c3-0.7.20/docs/js/c3.min.js"></script> -->
+    <!-- //<script src="https://kit.fontawesome.com/9dd8b341bf.js" crossorigin="anonymous"></script> -->
+    <script src="/script/hero.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

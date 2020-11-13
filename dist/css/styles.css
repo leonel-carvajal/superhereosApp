@@ -493,6 +493,9 @@ img {
   background-image: url("/img/fondo3.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .barra__opciones {
@@ -799,5 +802,49 @@ th {
   justify-content: space-evenly;
   align-items: center;
   font-size: 1.5rem;
+}
+
+.banner {
+  width: 80%;
+  height: 150px;
+  margin-top: 50px;
+  background: linear-gradient(#2c2a2a, #fdfdfb);
+  border-radius: 70px;
+  border: 1px solid #fff;
+  box-shadow: 8px 8px 8px #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  transition: animation 1s;
+  animation-name: banner;
+  animation-duration: 6s;
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+  animation-timing-function: cubic-bezier(1, 1.84, 0.27, 1.27);
+}
+
+@keyframes banner {
+  0% {
+    transform: scale(0);
+    width: 0%;
+    opacity: 0;
+    font-size: 0;
+    text-shadow: none;
+  }
+  50% {
+    transform: scale(0.5);
+    width: 50%;
+    opacity: 0.5;
+    font-size: 1.5rem;
+    text-shadow: 4px 4px 4px black;
+  }
+  100% {
+    width: 80%;
+    opacity: 1;
+    transform: scale(1);
+    font-size: 3rem;
+    text-shadow: 8px 8px 8px #000;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

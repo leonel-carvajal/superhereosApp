@@ -186,6 +186,7 @@ const filterName = async (data) => {
   }
   const secciones = document.getElementsByTagName('section')
   const modal = document.getElementById('modal')
+  
   for (const cards of secciones) {
     cards.addEventListener('click', () => {
       modal.classList.add('show')
@@ -196,13 +197,15 @@ const filterName = async (data) => {
   })
 
 }
-buscar.addEventListener('keyup', (e) => {
+buscar.addEventListener('keydown', (e) => {
   
   if (buscar.value != '') {
     filterName(e.target.value)
   }
 
 })
+
+
 const paintCharacters = (rango) => {
   rango = 24
   pintar(rango)

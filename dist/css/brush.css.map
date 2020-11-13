@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC,OAAO,CAAC;EAChB,YAAY,EAAE,EAAE;CACjB",
+    "sources": [
+        "../../li/c3-0.7.20/src/scss/brush.scss"
+    ],
+    "names": [],
+    "file": "brush.css"
+}
