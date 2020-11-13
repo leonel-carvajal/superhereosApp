@@ -8,6 +8,45 @@ const getHeros = async () => {
         console.log(error)
     }
 }
+const animacionBanner = ()=>{
+
+    const letraUno = document.querySelector('.container__fondo__letra1')
+    letraUno.classList.add('magictime','foolishIn')
+    const letraDos = document.querySelector('.container__fondo__letra2')
+    letraDos.classList.add('magictime', 'foolishIn')
+    const letraTres = document.querySelector('.container__fondo__letra3')
+    letraTres.classList.add('magictime', 'foolishIn')
+    const letraCuatro = document.querySelector('.container__fondo__letra4')
+    letraCuatro.classList.add('magictime', 'foolishIn')
+    const letraCinco = document.querySelector('.container__fondo__letra5')
+    letraCinco.classList.add('magictime', 'foolishIn')
+    const letraSeis = document.querySelector('.container__fondo__letra6')
+    letraSeis.classList.add('magictime', 'foolishIn')
+    const letraSiete = document.querySelector('.container__fondo__letra7')
+    letraSiete.classList.add('magictime', 'foolishIn')
+    const letraOcho = document.querySelector('.container__fondo__letra8')
+    letraOcho.classList.add('magictime', 'foolishIn')    
+}
+const animacionBannerQuit = ()=>{
+    const letraUno = document.querySelector('.container__fondo__letra1')
+    letraUno.classList.remove('magictime', 'foolishIn')
+    const letraDos = document.querySelector('.container__fondo__letra2')
+    letraDos.classList.remove('magictime', 'foolishIn')
+    const letraTres = document.querySelector('.container__fondo__letra3')
+    letraTres.classList.remove('magictime', 'foolishIn')
+    const letraCuatro = document.querySelector('.container__fondo__letra4')
+    letraCuatro.classList.remove('magictime', 'foolishIn')
+    const letraCinco = document.querySelector('.container__fondo__letra5')
+    letraCinco.classList.remove('magictime', 'foolishIn')
+    const letraSeis = document.querySelector('.container__fondo__letra6')
+    letraSeis.classList.remove('magictime', 'foolishIn')
+    const letraSiete = document.querySelector('.container__fondo__letra7')
+    letraSiete.classList.remove('magictime', 'foolishIn')
+    const letraOcho = document.querySelector('.container__fondo__letra8')
+    letraOcho.classList.remove('magictime', 'foolishIn') 
+}
+setTimeout(animacionBanner,2000)
+setTimeout(animacionBannerQuit,4500)
 const mod = () => {
     const secciones = document.getElementsByTagName('section')
     const modal = document.getElementById('modal')

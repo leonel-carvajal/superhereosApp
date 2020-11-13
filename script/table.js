@@ -44,8 +44,12 @@ const Paint = async()=>{
         TR.appendChild(tdDura)
         TR.appendChild(tdpoder)
         TR.appendChild(tdcomba)
+        parseInt(tdId)
         fragment.appendChild(TR)
     }
+    
     tableBody.appendChild(fragment);
+
 }
+
 window.addEventListener('DOMContentLoaded',Paint)

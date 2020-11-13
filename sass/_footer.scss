@@ -1,18 +1,43 @@
-.footer{
-    background-color: #555;
-    height: 70px;
+.footer {
+    background-color: rgba(0, 0, 0,0.5);
+    height: 40px;
     width: 100%;
-    & ul{
+
+    & ul {
         list-style: none;
     }
-    &__paginacion{
+
+    &__paginacion {
         height: 100%;
         margin-bottom: 0;
         color: #fff;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         font-size: 1.5rem;
+
+        & a {
+            text-decoration: none;
+        }
+
+        &__item {
+            color: #fff;
+            background-color: lime;
+            margin-right: 10px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s;
+            &:hover{
+                background-color: #fff;
+                color: #000;
+                transform: rotate(360deg);
+                cursor: pointer;
+            }
+        }
     }
 }

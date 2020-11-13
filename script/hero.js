@@ -8,6 +8,32 @@ const getHeros = async()=>{
         console.log(error)
     }
 }
+const animacionBanner = () => {
+    const letraUno = document.querySelector('.container__fondo__letra1')
+    letraUno.classList.add('magictime', 'tinDownIn')
+    const letraDos = document.querySelector('.container__fondo__letra2')
+    letraDos.classList.add('magictime', 'tinDownIn')
+    const letraTres = document.querySelector('.container__fondo__letra3')
+    letraTres.classList.add('magictime', 'tinDownIn')
+    const letraCuatro = document.querySelector('.container__fondo__letra4')
+    letraCuatro.classList.add('magictime', 'tinDownIn')
+    const letraCinco = document.querySelector('.container__fondo__letra5')
+    letraCinco.classList.add('magictime', 'tinDownIn')
+}
+const animationBannerQuit = ()=>{
+    const letraUno = document.querySelector('.container__fondo__letra1')
+    letraUno.classList.remove('magictime', 'tinDownIn')
+    const letraDos = document.querySelector('.container__fondo__letra2')
+    letraDos.classList.remove('magictime', 'tinDownIn')
+    const letraTres = document.querySelector('.container__fondo__letra3')
+    letraTres.classList.remove('magictime', 'tinDownIn')
+    const letraCuatro = document.querySelector('.container__fondo__letra4')
+    letraCuatro.classList.remove('magictime', 'tinDownIn')
+    const letraCinco = document.querySelector('.container__fondo__letra5')
+    letraCinco.classList.remove('magictime', 'tinDownIn')
+}
+setTimeout(animacionBanner, 2000)
+setTimeout(animationBannerQuit,4500)
 const mod = () => {
     const secciones = document.getElementsByTagName('section')
     const modal = document.getElementById('modal')
