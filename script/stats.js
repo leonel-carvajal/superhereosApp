@@ -31,60 +31,65 @@ const animationBannerQuit = () => {
 setTimeout(animacionBanner, 400)
 setTimeout(animationBannerQuit, 2000)
 
-const grafico = (n1=0,n2=0,n3=0,n4=0,n5=0,n6=0)=>{
-    let ctx = document.getElementById('myChart').getContext('2d');
-    myChart = new Chart(ctx, {
-        type: 'polarArea',
-        data: {
-            labels: ['Inteligencia', 'Combate', 'Velocidad', 'Durabilidad', 'Poder', 'Fuerza'],
-            datasets: [{
-                label: 'Estadistícas',
-                data: [n1, n2, n3, n4,n5, n6],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(255, 159, 64, 0.6)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: 'Estadistícas',
-                fontColor: '#000',
-                fontSize: 20,
-                fontStyle: 'bold'
+// const grafico = (n1=0,n2=0,n3=0,n4=0,n5=0,n6=0)=>{
 
-            },
-            legend: {
-                display: true,
-                labels: {
-                    fontSize: 16,
-                    fontColor: '#000'
-                }
-            },
-            scales: {
-                ticks: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+// /*
+//     let ctx = document.getElementById('myChart').getContext('2d');
+//     myChart = new Chart(ctx, {
+//         type: 'polarArea',
+//         data: {
+//             labels: ['Inteligencia', 'Combate', 'Velocidad', 'Durabilidad', 'Poder', 'Fuerza'],
+//             datasets: [{
+//                 label: 'Estadistícas',
+//                 data: [n1, n2, n3, n4,n5, n6],
+//                 backgroundColor: [
+//                     'rgba(255, 99, 132, 0.6)',
+//                     'rgba(54, 162, 235, 0.6)',
+//                     'rgba(255, 206, 86, 0.6)',
+//                     'rgba(75, 192, 192, 0.6)',
+//                     'rgba(153, 102, 255, 0.6)',
+//                     'rgba(255, 159, 64, 0.6)'
+//                 ],
+//                 borderColor: [
+//                     'rgba(255, 99, 132, 1)',
+//                     'rgba(54, 162, 235, 1)',
+//                     'rgba(255, 206, 86, 1)',
+//                     'rgba(75, 192, 192, 1)',
+//                     'rgba(153, 102, 255, 1)',
+//                     'rgba(255, 159, 64, 1)'
+//                 ],
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             responsive: true,
+//             title: {
+//                 display: true,
+//                 text: 'Estadistícas',
+//                 fontColor: '#000',
+//                 fontSize: 20,
+//                 fontStyle: 'bold'
 
-}
+//             },
+//             legend: {
+//                 display: true,
+//                 labels: {
+//                     fontSize: 16,
+//                     fontColor: '#000'
+//                 }
+//             },
+//             scales: {
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }
+//         }
+//     });*/
+
+// }
+
+
+
 const getCharacters = async()=>{
     try {
         const res = await fetch('https://akabab.github.io/superhero-api/api/all.json')
@@ -92,6 +97,44 @@ const getCharacters = async()=>{
         return data
     } catch (error) {
         console.log(error)
+    }
+}
+const grafico = (n1=0, n2=0, n3=0, n4=0, n5=0,n6=0) => {
+
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        let data = google.visualization.arrayToDataTable([
+            ['Stats', 'powerstats',{role:'style'},{role:'annotation'}],
+            ['Intelligence', n1,'blue','In'],
+            ['Strengt', n2,'red','St'],
+            ['Speed', n3,'yellow','Spe'],
+            ['Durability', n4,'crimson','Dur'],
+            ['Power', n5,'black','Po'],
+            ['Combat', n6, 'stroke-color: #703593; stroke-width: 2; fill-color: #C5A5CF','Co']
+        ]);
+
+        let options = {
+            title: 'Stats',
+            titleTextStyle:{
+                color:'royalblue',
+                fontSize:24,
+                bold:true,
+                fontName:'Arial'
+            },
+            subtitle:'powerstats',
+            backgroundColor:'#222',
+            pieHole: 0.4,
+            pieSliceTextStyle:{
+                color:'#fff'
+            }
+        };
+
+        let chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
+        chart.draw(data, options);
     }
 }
 
@@ -107,18 +150,19 @@ const paint =async ()=>{
     rangos.appendChild(fragment)
 }
 const graf = async (e)=>{
-    grafico()
     const dt = await getCharacters()
     for (const data of dt) {
         if(e.target.value===data.name){
-            grafico(data.powerstats.intelligence,data.powerstats.strength,data.powerstats.speed,data.powerstats.durability,data.powerstats.power,data.powerstats.combat)
+            grafico(
+            parseInt(data.powerstats.intelligence),parseInt(data.powerstats.strength)
+            ,parseInt(data.powerstats.speed),parseInt(data.powerstats.durability)
+            ,parseInt(data.powerstats.power),parseInt(data.powerstats.combat))
             imgcard.src = data.images.md
             imgcard.alt  = data.name 
             nom.textContent = data.name
         }
     }
-    contGrafico.textContent = ''
 }
 rangos.addEventListener('change',graf,false)
-window.addEventListener('DOMContentLoaded',grafico,false)
 window.addEventListener('load',paint,false)
+grafico()

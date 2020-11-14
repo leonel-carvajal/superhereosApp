@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/dist/css/styles.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/li/magic-master/dist/magic.min.css">
+
     <style>
         .barra__opciones {
             align-items: flex-end;
@@ -65,7 +66,7 @@
                 <option value="id">Nombres</option>
             </select>
             <div class="grafico" id="Cont_grafico">
-                <canvas id="myChart" width="400" height="400" class="canvas"></canvas>
+                <div id="myChart" class="grafico__canvas"></div>
             </div>
             <div class="tarjeta">
                 <img src="/img/fondo.jpg" alt="" id="img_card" class="tarjeta__img">
@@ -81,7 +82,7 @@
             <li class="footer__paginacion__item">4</li>
         </ul>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="/script/stats.js"></script>
 </body>
 </html>

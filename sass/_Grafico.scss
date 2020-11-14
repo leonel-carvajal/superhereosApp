@@ -2,12 +2,12 @@
       margin-right: 5rem;
       overflow: hidden;
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 0;
       .grafico {
           grid-column: 1/2;
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             margin-left: 4rem;
             background-color: #eee;
             border-radius: 10px;
@@ -47,4 +47,7 @@
         }
     }
 }
- 
+ #myChart{
+     width: 100%;
+     min-height: 100%;
+ }
