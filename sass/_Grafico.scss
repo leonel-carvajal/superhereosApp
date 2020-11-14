@@ -1,0 +1,50 @@
+  .contenedor2{
+      margin-right: 5rem;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 0;
+      .grafico {
+          grid-column: 1/2;
+            width: 400px;
+            height: 400px;
+            margin-left: 4rem;
+            background-color: #eee;
+            border-radius: 10px;
+        }
+        .buscar__rangos{
+            grid-column: 2/3;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            & option{
+                color: #fff;
+            }
+        }
+    .tarjeta{
+        margin-top: 8px;
+        grid-column: 2/3;
+        width: 250px;
+        height: 420px;
+        margin-left: 50%;
+        background-color: #ccc;
+        &__nombre{
+            text-align: justify;
+            width: 100%;
+            height: 45px;
+            background-color: #000;
+            color: lime;
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -4px;
+        }
+        & img {
+            max-width: 100%;
+            object-fit: contain;
+        }
+    }
+}
+ 

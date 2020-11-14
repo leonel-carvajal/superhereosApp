@@ -45,8 +45,8 @@ const animacionBannerQuit = ()=>{
     const letraOcho = document.querySelector('.container__fondo__letra8')
     letraOcho.classList.remove('magictime', 'foolishIn') 
 }
-setTimeout(animacionBanner,2000)
-setTimeout(animacionBannerQuit,4500)
+setTimeout(animacionBanner,400)
+setTimeout(animacionBannerQuit,2700)
 const mod = () => {
     const secciones = document.getElementsByTagName('section')
     const modal = document.getElementById('modal')

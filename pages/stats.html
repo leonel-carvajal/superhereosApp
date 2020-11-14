@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero's</title>
+    <link rel="stylesheet" href="/dist/css/styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/li/magic-master/dist/magic.min.css">
+    <style>
+        .barra__opciones {
+            align-items: flex-end;
+        }
+    </style>
+</head>
+<header class="header">
+    <nav class="navbar">
+        <a href="/pages/heroes.html" class="navbar__item">Heróes</a>
+        <a href="/pages/villains.html" class="navbar__item">Villanos</a>
+        <a href="/pages/temas.html" class="navbar__item">Equipos</a>
+        <a href="/pages/stats.html" class="navbar__item">Estadisticas</a>
+    </nav>
+</header>
+<body>
+    <main>
+        <div class="barra" id="barra">
+            <div class="container">
+                <div class="container__fondo">
+                    <div class="container__fondo__letra1">S</div>
+                </div>
+                <div class="container__fondo">
+                    <div class="container__fondo__letra2">T</div>
+                </div>
+                <div class="container__fondo">
+                    <div class="container__fondo__letra3">A</div>
+                </div>
+                <div class="container__fondo">
+                    <div class="container__fondo__letra4">T</div>
+                </div>
+                <div class="container__fondo">
+                    <div class="container__fondo__letra5">S</div>
+                </div>
+            </div>
+            <ul class="barra__opciones">
+                <a href="/pages/marvel.html">
+                    <li class="barra__opciones__item">Marvel Comics</li>
+                </a>
+                <a href="/pages/dc.html">
+                    <li class="barra__opciones__item">Dc Comics</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Home</li>
+                </a>
+                <a href="/">
+                    <li class="barra__opciones__item">Todos</li>
+                </a>
+                <a href="/pages//favorites.html">
+                    <li class="barra__opciones__item">Favoritos</li>
+                </a>
+            </ul>
+        </div>
+        <article class="contenedor2" id="contenedor">
+            <select name="rangos" id="rangos" class="buscar__rangos">
+                <option value="id">Nombres</option>
+            </select>
+            <div class="grafico" id="Cont_grafico">
+                <canvas id="myChart" width="400" height="400" class="canvas"></canvas>
+            </div>
+            <div class="tarjeta">
+                <img src="/img/fondo.jpg" alt="" id="img_card" class="tarjeta__img">
+                <p class="tarjeta__nombre" id="nombre"></p>
+            </div>
+        </article>
+    </main>
+    <footer class="footer">
+        <ul class="footer__paginacion">
+            <li class="footer__paginacion__item">1</li>
+            <li class="footer__paginacion__item">2</li>
+            <li class="footer__paginacion__item">3</li>
+            <li class="footer__paginacion__item">4</li>
+        </ul>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="/script/stats.js"></script>
+</body>
+</html>
