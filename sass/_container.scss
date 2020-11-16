@@ -29,7 +29,7 @@
 }
 
 .find {
-    grid-column: 2/3;
+    grid-column:span 4;
 }
 
 .card {
@@ -79,69 +79,98 @@
     transform: scale(0);
     transition: transform 0.3s;
 }
-.modal__content{
-        text-align: center;
-        padding-bottom: 1rem;
-        margin-bottom: 10px;
-        cursor: pointer;
-        background-color: #333;
-        border: 1px solid #fff;
-        color: #fff;
-        width: 80%;
-        height: 97vh;
-        padding: 0.5rem; 
-        border-radius: 10px;
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        grid-template-rows: repeat(2,1fr);
+
+.modal__content {
+    @include mobile {
+        overflow: scroll;
+        grid-template-columns: repeat(3, 250px);
+    }
+
+    @media screen and(min-width:360px) and (orientation:landscape) {
+        overflow-y: scroll;
+    }
+
+    @include laptop {
+        overflow: scroll;
+    }
+
+    @include tablet {
         overflow: hidden;
-        & img{
-            max-width: 100%;
-            border-radius: 50%;
-            border: 1px solid #fff;
-        }
-        &__titulos{
-            grid-column: 2/3;
-            grid-row: 1/2;
-        }
-        ul{
-            list-style: none;
-            & li{
-                margin-bottom: 10px;
-                &:first-child{
-                    font-size: 1.3rem;
-                    text-decoration: underline;
-                    color: lime;
-                }
+    }
+
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #333;
+    border: 1px solid #fff;
+    color: #fff;
+    width: 80%;
+    height: 97vh;
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    overflow: hidden;
+
+    & img {
+        max-width: 100%;
+        border-radius: 50%;
+        border: 1px solid #fff;
+    }
+
+    &__titulos {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    ul {
+        list-style: none;
+
+        & li {
+            margin-bottom: 10px;
+
+            &:first-child {
+                font-size: 1.3rem;
+                text-decoration: underline;
+                color: lime;
             }
         }
-        &__caracteristicas{
-            grid-column: 1/2;
-            grid-row: 2/-1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: -60px;
-        }
-        &__apariencia{
-            grid-column: 1/2;
-            grid-row: 1/2;
-        }
-        &__biografia{
-            grid-column: 2/3;
-            grid-row: 2/3;
-            text-align: center;
-        }
-        &__trabajo{
-            grid-column: 3/4;
-            grid-row: 1/2;
-        }
-        &__conexion{
-            grid-column: 3/4;
-            grid-row: 2/3;
-        }
+    }
+
+    &__caracteristicas {
+        grid-column: 1/2;
+        grid-row: 2/-1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -60px;
+    }
+
+    &__apariencia {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    &__biografia {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        text-align: center;
+    }
+
+    &__trabajo {
+        grid-column: 3/4;
+        grid-row: 1/2;
+    }
+
+    &__conexion {
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
 }
-.titulos__name{
+
+.titulos__name {
     background-color: #000;
     border: 4px;
     border-radius: 5px;
@@ -150,7 +179,7 @@
     font-size: 2rem;
 }
 
-.show{
+.show {
     transform: scale(1);
 }
 
@@ -163,4 +192,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.anuncio {
+
+    @include laptop {
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        background-color: #4169e1;
+        border: 1px solid #000;
+        border-radius: 10px;
+        grid-column: 2/4;
+    }
+    @include mobile {
+        grid-column: 1/-1;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        background-color: #4169e1;
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
+
+    @include tablet {
+        grid-column: 1/-1;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        background-color: #4169e1;
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
 }

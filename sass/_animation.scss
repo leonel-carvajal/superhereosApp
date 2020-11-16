@@ -4,6 +4,13 @@
     justify-content: space-around;
     align-items: center;
     &__fondo{
+        @include mobile{
+            width: 80%;
+            display: none;
+        }
+        @include tablet{
+            width: 80px;
+        }
         position: relative;
         width: 100px;
         height: 100px;
@@ -11,6 +18,10 @@
         border-radius: 10px;
         margin-right: 5px;
         &__letra1,&__letra2,&__letra3,&__letra4,&__letra5,&__letra6,&__letra7,&__letra8{
+            @include tablet{
+                width: 80px;
+                height: 80px;
+            }
             position: absolute;
             top:0px;
             left: 0px;
@@ -33,7 +44,7 @@
             animation-direction: alternate;
             transition: transform 1s;
             &:hover{
-                transform: rotate(360deg);
+                transform: rotate(20deg);
                 background-color: lime;
                 color: #000;
                 cursor: pointer;

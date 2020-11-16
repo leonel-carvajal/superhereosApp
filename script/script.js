@@ -143,7 +143,7 @@ const filterName = async (data) => {
         card.classList.add("card");
         card.setAttribute('id', 'card')
         name.textContent = datos[i].name;
-        title.textContent = "Características";
+        title.textContent = "Datos";
         const powerStat = document.createElement("ul");
         const li_intelligence = document.createElement("li");
         li_intelligence.textContent = `Inteligencia: ${datos[i].powerstats.intelligence}`;
