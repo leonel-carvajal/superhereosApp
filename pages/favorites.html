@@ -1,40 +1,11 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-       const grafico = (n1,n2,n3,n4,n5)=>{
-
-            google.charts.load("current", {
-            packages: ["corechart"]
-            });
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Work', n1],
-            ['Eat', n2],
-            ['Commute', n3],
-            ['Watch TV', n4],
-            ['Sleep', n5]
-            ]);
-
-            var options = {
-            title: 'My Daily Activities',
-            pieHole: 0.4,
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-            chart.draw(data, options);
-            }
-       }
-       grafico(40,88,44,22,11);
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>favorites</title>
 </head>
-
 <body>
-    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+    
 </body>
-
 </html>

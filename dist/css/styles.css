@@ -964,6 +964,12 @@ th{
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .container__fondo {
+    width: 100px;
+  }
+}
+
 .container__fondo__letra1, .container__fondo__letra2, .container__fondo__letra3, .container__fondo__letra4, .container__fondo__letra5, .container__fondo__letra6, .container__fondo__letra7, .container__fondo__letra8 {
   position: absolute;
   top: 0px;
@@ -992,6 +998,13 @@ th{
   .container__fondo__letra1, .container__fondo__letra2, .container__fondo__letra3, .container__fondo__letra4, .container__fondo__letra5, .container__fondo__letra6, .container__fondo__letra7, .container__fondo__letra8 {
     width: 80px;
     height: 80px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container__fondo__letra1, .container__fondo__letra2, .container__fondo__letra3, .container__fondo__letra4, .container__fondo__letra5, .container__fondo__letra6, .container__fondo__letra7, .container__fondo__letra8 {
+    width: 100px;
+    height: 100px;
   }
 }
 
