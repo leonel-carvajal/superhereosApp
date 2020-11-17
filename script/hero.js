@@ -34,6 +34,7 @@ const animationBannerQuit = ()=>{
 }
 setTimeout(animacionBanner, 400)
 setTimeout(animationBannerQuit,2700)
+
 const mod = () => {
     const secciones = document.getElementsByTagName('section')
     const modal = document.getElementById('modal')
@@ -48,6 +49,12 @@ const mod = () => {
     const modalWork = document.getElementById('modal_work')
     const modalConexion = document.getElementById('modal_conexion')
     //--------------------------------------------
+    const botones = document.querySelectorAll('button')
+    for (const btn of botones) {
+        btn.addEventListener('click',()=>{
+            modal.classList.add('show')
+        })
+    }
     for (const cards of secciones) {
         // const img = document.createElement('img')
         cards.addEventListener('click', () => {
@@ -110,6 +117,9 @@ const getAll = async()=>{
             const name = document.createElement("p");
             const title = document.createElement("p");
             const numero = document.createElement("span");
+            const boton = document.createElement('button')
+            boton.textContent = 'Ver infomación'
+            boton.classList.add('boton')
             numero.textContent =heros.id;
             card.classList.add("card");
             name.textContent =heros.name;
@@ -143,6 +153,7 @@ const getAll = async()=>{
             card.appendChild(img);
             card.appendChild(title);
             card.appendChild(powerStat);
+            card.appendChild(boton)
             fragment.appendChild(card);
             
         }

@@ -23,8 +23,11 @@ const modal = () => {
   const modalBio = document.getElementById('modal_bio')
   const modalWork = document.getElementById('modal_work')
   const modalConexion = document.getElementById('modal_conexion')
-
-
+  const botones = document.querySelectorAll('button')
+  for (const btn of botones) {
+    btn.addEventListener('click',()=>modal.classList.add('show'))
+  }
+//---------------------------
   for (const cardsMarvel of sectionDc) {
     cardsMarvel.addEventListener('click', () => {
       modal.classList.add('show')
@@ -83,6 +86,9 @@ const getAllMarvel = (data) => {
       const name = document.createElement("p");
       const title = document.createElement("p");
       const numero = document.createElement("span");
+      const boton = document.createElement('button')
+      boton.textContent  = 'Ver información'
+      boton.classList.add('boton')
       numero.textContent = marvelComics.id;
       card.classList.add("card");
       name.textContent = marvelComics.name;
@@ -116,6 +122,7 @@ const getAllMarvel = (data) => {
       card.appendChild(img);
       card.appendChild(title);
       card.appendChild(powerStat);
+      card.appendChild(boton)
       fragment.appendChild(card);
     }
   }

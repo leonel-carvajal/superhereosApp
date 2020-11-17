@@ -27,6 +27,10 @@ const f = ()=>{
   const modalWork = document.getElementById('modal_work')
   const modalConexion = document.getElementById('modal_conexion')
   //--------------------------------------------
+  const botones = document.querySelectorAll('button')
+  for (const btn of botones) {
+      btn.addEventListener('click',()=>{modal.classList.add('show')})
+  }
   for (const cards of secciones) {
     // const img = document.createElement('img')
     cards.addEventListener('click', () => {
@@ -88,6 +92,9 @@ const pintar = async (rango = 0) => {
     const name = document.createElement("p");
     const title = document.createElement("p");
     const numero = document.createElement("span");
+    const boton = document.createElement('button')
+    boton.classList.add('boton')
+    boton.textContent = 'Ver información'
     numero.textContent = data[i].id;
     card.classList.add("card");
     name.textContent = data[i].name;
@@ -121,6 +128,7 @@ const pintar = async (rango = 0) => {
     card.appendChild(img);
     card.appendChild(title);
     card.appendChild(powerStat);
+    card.appendChild(boton)
     fragment.appendChild(card);
   }
   contenedor.appendChild(fragment);
@@ -139,6 +147,9 @@ const filterName = async (data) => {
         const name = document.createElement("p");
         const title = document.createElement("p");
         const numero = document.createElement("span");
+        const boton = document.createElement('button')
+        boton.textContent = 'Ver informacion'
+        boton.classList.add('boton')
         numero.textContent = datos[i].id;
         card.classList.add("card");
         card.setAttribute('id', 'card')
@@ -174,6 +185,7 @@ const filterName = async (data) => {
         card.appendChild(img);
         card.appendChild(title);
         card.appendChild(powerStat);
+        card.appendChild(boton)
         card.classList.toggle('find')
         fragment.appendChild(card);
       }
