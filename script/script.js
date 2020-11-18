@@ -4,7 +4,7 @@ const rangos = document.getElementById('rangos')
 const buscar = document.getElementById('buscar')
 const mensaje = document.getElementById('mensaje')
 const barra = document.getElementById('barra')
-
+let rango
 let bd
 let contador = 0
 const comenzar = () => {
@@ -157,7 +157,7 @@ const pintar = async (rango = 0) => {
   for (const favoritos of favo) {
     favoritos.addEventListener('click', (e) => {
       favoritos.classList.toggle('active')
-      
+
       let id = parseInt(favoritos.previousSibling.textContent)
       let nombre = favoritos.nextSibling.textContent
       let transaccion = bd.transaction('tabla', 'readwrite').objectStore('tabla')
@@ -167,14 +167,14 @@ const pintar = async (rango = 0) => {
         agregar = transaccion.delete(id)
       }
 
-      if (favoritos.classList.contains('active') ) {
+      if (favoritos.classList.contains('active')) {
         mensaje.textContent = 'Personajes agregado a favorito'
         mensaje.classList.add('confirmar')
-        setTimeout(()=>{
+        setTimeout(() => {
           mensaje.classList.remove('confirmar')
           e.preventDefault()
-        },3000)
-      } else{
+        }, 3000)
+      } else {
         mensaje.classList.remove('confirmar')
       }
     })
@@ -281,22 +281,18 @@ rangos.addEventListener('change', (e) => {
 window.addEventListener('DOMContentLoaded', paintCharacters)
 window.addEventListener('load', comenzar)
 
- const imagenes = ['dccomics.jpg','dcMarvel.jpg','fondo.jpg','fondo3.jpg','marvel.jpg','hero1.jpg',
-'hero2.jpg','hero3.jpg','maevel2.jpg','hero3.jpg','hero4.jpg','hero5.jpg']
-
-setInterval(()=>{
-    barra.style.backgroundImage =`url(/img/${imagenes[Math.ceil((Math.random(10) * 12))]})`
-  },5000*2)
-
-window.addEventListener('close', () => {
-  let req = indexedDB.deleteDatabase('personajes')
-  req.onsuccess = () => {
-    console.log('Base de datos borrada')
-  }
-  req.onerror = () => {
-    console.log('no se pudo borar base de datos')
-  }
-  req.onblocked = () => {
-    console.log('Nose pudo borrar base de datos|| operación bloqueada')
-  }
-})
+const imagenes = () => {
+  const imagenes = ['dccomics.jpg', 'dcMarvel.jpg', 'fondo.jpg', 'fondo3.jpg', 'marvel.jpg', 'hero1.jpg',
+    'hero2.jpg', 'hero3.jpg', 'maevel2.jpg', 'hero3.jpg', 'hero4.jpg', 'hero5.jpg']
+  let cont = 0
+  let ultima = imagenes.length - 1
+  setInterval(() => {
+    barra.style.backgroundImage = `url(/img/${imagenes[cont]})`
+    cont++
+    if (cont > ultima || cont == ultima) {
+      cont = 0
+    }
+    barra.classList.add('opacidad')
+  }, 5000)
+}
+imagenes()

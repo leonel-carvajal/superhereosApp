@@ -11,6 +11,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: opacity 1s;
+    &.opacidad{
+        opacity: 0;
+    }
 
     &__opciones {
         height: 100%;

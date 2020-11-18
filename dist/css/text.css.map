@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,QAAQ,AAAA,SAAS,CAAC;EAChB,IAAI,EAAE,OAAO;EACb,SAAS,EAAE,GAAG;CACf",
+    "sources": [
+        "../../li/c3-0.7.20/src/scss/text.scss"
+    ],
+    "names": [],
+    "file": "text.css"
+}
