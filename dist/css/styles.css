@@ -618,11 +618,11 @@ img {
   cursor: pointer;
   width: 220px;
   border: 1px solid lime;
+  position: relative;
 }
 
 .card span {
   font-size: 1.4rem;
-  display: block;
   border-bottom: 1px solid lime;
   display: flex;
   justify-content: center;
@@ -836,6 +836,74 @@ img {
   background-color: #fff;
   color: #4169e1;
   border: 1px solid #4169e1;
+}
+
+.agregar {
+  width: 50px;
+  height: 25px;
+  color: #fff;
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #d40808;
+  cursor: pointer;
+  height: 26px;
+  border-radius: 800px;
+}
+
+.agregar::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-color: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: all 0.5s;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.agregar.active {
+  background-color: lime;
+}
+
+.agregar.active::after {
+  right: 0;
+  left: unset;
+}
+
+.mensaje {
+  font-size: 2rem;
+  text-align: center;
+  color: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  background-color: #00a135;
+  width: 100%;
+  height: 50px;
+  transform: translateY(-100%);
+  transition: 0.7s;
+}
+
+.mensaje.confirmar {
+  animation-name: mensaje;
+  animation-duration: 1.5s;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+}
+
+@keyframes mensaje {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 
 /*

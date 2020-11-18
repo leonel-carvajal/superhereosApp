@@ -2,8 +2,20 @@
 const contenedor = document.getElementById("contenedor");
 const rangos = document.getElementById('rangos')
 const buscar = document.getElementById('buscar')
+const mensaje = document.getElementById('mensaje')
+let bd
+let contador = 0
+const comenzar = () => {
+  let solicitud = indexedDB.open('personajes')
+  solicitud.onsuccess = (e) => {
+    bd = e.target.result
+  }
+  solicitud.onupgradeneeded = (e) => {
+    bd = e.target.result
+    bd.createObjectStore('tabla', { keyPath: 'id' })
 
-
+  }
+}
 const getCharacters = async () => {
   try {
     const res = await fetch('https://akabab.github.io/superhero-api/api/all.json')
@@ -13,7 +25,7 @@ const getCharacters = async () => {
     console.log(error)
   }
 }
-const f = ()=>{
+const f = () => {
   const secciones = document.getElementsByTagName('section')
   const modal = document.getElementById('modal')
   const modal_content = document.getElementById('modal__content')
@@ -29,12 +41,14 @@ const f = ()=>{
   //--------------------------------------------
   const botones = document.querySelectorAll('button')
   for (const btn of botones) {
-      btn.addEventListener('click',()=>{modal.classList.add('show')})
+    btn.addEventListener('click', (e) => {
+      e.preventDefault()
+      modal.classList.add('show')
+    })
   }
   for (const cards of secciones) {
-    // const img = document.createElement('img')
     cards.addEventListener('click', () => {
-      modal.classList.add('show')
+      //modal.classList.add('show')
       fetch(`https://akabab.github.io/superhero-api/api/id/${cards.childNodes[0].textContent}.json`)
         .then(res => res.json())
         .then(data => {
@@ -92,10 +106,13 @@ const pintar = async (rango = 0) => {
     const name = document.createElement("p");
     const title = document.createElement("p");
     const numero = document.createElement("span");
-    const boton = document.createElement('button')
+    const spanAdd = document.createElement('div')
+    const boton = document.createElement('button');
     boton.classList.add('boton')
     boton.textContent = 'Ver información'
     numero.textContent = data[i].id;
+    spanAdd.textContent = ''
+    spanAdd.classList.add('agregar')
     card.classList.add("card");
     name.textContent = data[i].name;
     title.textContent = "Características";
@@ -124,6 +141,7 @@ const pintar = async (rango = 0) => {
     powerStat.appendChild(li_combat);
     powerStat.appendChild(li_equipo);
     card.appendChild(numero);
+    card.appendChild(spanAdd)
     card.appendChild(name);
     card.appendChild(img);
     card.appendChild(title);
@@ -132,14 +150,39 @@ const pintar = async (rango = 0) => {
     fragment.appendChild(card);
   }
   contenedor.appendChild(fragment);
-//---------------------------------
- f()
+  //---------------------------------
+  const favo = document.querySelectorAll('.agregar')
+  for (const favoritos of favo) {
+    favoritos.addEventListener('click', (e) => {
+      favoritos.classList.toggle('active')
+      
+      let id = parseInt(favoritos.previousSibling.textContent)
+      let nombre = favoritos.nextSibling.textContent
+      let transaccion = bd.transaction('tabla', 'readwrite').objectStore('tabla')
+      if (favoritos.classList.contains('active')) {
+        let agregar = transaccion.add({ id: id, nombre: nombre })
+      } else {
+        agregar = transaccion.delete(id)
+      }
 
+      if (favoritos.classList.contains('active') ) {
+        mensaje.textContent = 'Personajes agregado a favorito'
+        mensaje.classList.add('confirmar')
+        setTimeout(()=>{
+          mensaje.classList.remove('confirmar')
+        },3000)
+      } else{
+        mensaje.classList.remove('confirmar')
+      }
+    })
+  }
+  //---------------------------------
+  f()
 }
 const filterName = async (data) => {
   const datos = await getCharacters()
   const fragment = document.createDocumentFragment()
-  if (data.length >1) {
+  if (data.length > 1) {
     for (let i = 0; i < datos.length; i++) {
       if (datos[i].name === data) {
         contenedor.innerHTML = ''
@@ -198,25 +241,24 @@ const filterName = async (data) => {
   }
   const secciones = document.getElementsByTagName('section')
   const modal = document.getElementById('modal')
-  
-  for (const cards of secciones) {
-    cards.addEventListener('click', () => {
-      modal.classList.add('show')
-    })
-  }
+
+  // for (const cards of secciones) {
+  //   cards.addEventListener('click', () => {
+  //     modal.classList.add('show')
+  //   })
+  // }
   modal.addEventListener('click', () => {
     modal.classList.remove('show')
   })
 
 }
 buscar.addEventListener('keydown', (e) => {
-  
+
   if (buscar.value != '') {
     filterName(e.target.value)
   }
 
 })
-
 
 const paintCharacters = (rango) => {
   rango = 24
@@ -233,5 +275,18 @@ rangos.addEventListener('change', (e) => {
     pintar(rango)
   }
 })
+window.addEventListener('DOMContentLoaded', paintCharacters)
+window.addEventListener('load', comenzar)
 
-window.addEventListener('DOMContentLoaded', paintCharacters, false)
+window.addEventListener('beforeunload', () => {
+  let req = indexedDB.deleteDatabase('personajes')
+  req.onsuccess = () => {
+    console.log('Base de datos borrada')
+  }
+  req.onerror = () => {
+    console.log('no se pudo borar base de datos')
+  }
+  req.onblocked = () => {
+    console.log('Nose pudo borrar base de datos|| operación bloqueada')
+  }
+})
