@@ -292,7 +292,6 @@ const imagenes = () => {
     if (cont > ultima || cont == ultima) {
       cont = 0
     }
-    barra.classList.add('opacidad')
   }, 5000)
 }
 imagenes()

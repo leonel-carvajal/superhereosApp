@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../../li/c3-0.7.20/src/scss/select_drag.scss"
-    ],
-    "names": [],
-    "file": "select_drag.css"
-}
