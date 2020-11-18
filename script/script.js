@@ -3,6 +3,8 @@ const contenedor = document.getElementById("contenedor");
 const rangos = document.getElementById('rangos')
 const buscar = document.getElementById('buscar')
 const mensaje = document.getElementById('mensaje')
+const barra = document.getElementById('barra')
+
 let bd
 let contador = 0
 const comenzar = () => {
@@ -170,6 +172,7 @@ const pintar = async (rango = 0) => {
         mensaje.classList.add('confirmar')
         setTimeout(()=>{
           mensaje.classList.remove('confirmar')
+          e.preventDefault()
         },3000)
       } else{
         mensaje.classList.remove('confirmar')
@@ -278,7 +281,14 @@ rangos.addEventListener('change', (e) => {
 window.addEventListener('DOMContentLoaded', paintCharacters)
 window.addEventListener('load', comenzar)
 
-window.addEventListener('beforeunload', () => {
+ const imagenes = ['dccomics.jpg','dcMarvel.jpg','fondo.jpg','fondo3.jpg','marvel.jpg','hero1.jpg',
+'hero2.jpg','hero3.jpg','maevel2.jpg','hero3.jpg','hero4.jpg','hero5.jpg']
+
+setInterval(()=>{
+    barra.style.backgroundImage =`url(/img/${imagenes[Math.ceil((Math.random(10) * 12))]})`
+  },5000*2)
+
+window.addEventListener('close', () => {
   let req = indexedDB.deleteDatabase('personajes')
   req.onsuccess = () => {
     console.log('Base de datos borrada')
