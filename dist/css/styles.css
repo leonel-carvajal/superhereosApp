@@ -6,6 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -385,6 +386,7 @@ img {
   .navbar {
     font-size: 1rem;
   }
+
   .navbar:nth-child(4) {
     display: none;
   }
@@ -400,6 +402,7 @@ img {
   .navbar__item {
     color: yellow;
   }
+
   .navbar__item:nth-child(4) {
     display: none;
   }
@@ -409,6 +412,7 @@ img {
   .navbar__item {
     color: yellow;
   }
+
   .navbar__item:nth-child(4) {
     display: none;
   }
@@ -901,6 +905,7 @@ img {
   from {
     transform: translateY(-100%);
   }
+
   to {
     transform: translateY(0%);
   }
@@ -1059,7 +1064,14 @@ th{
   }
 }
 
-.container__fondo__letra1, .container__fondo__letra2, .container__fondo__letra3, .container__fondo__letra4, .container__fondo__letra5, .container__fondo__letra6, .container__fondo__letra7, .container__fondo__letra8 {
+.container__fondo__letra1,
+.container__fondo__letra2,
+.container__fondo__letra3,
+.container__fondo__letra4,
+.container__fondo__letra5,
+.container__fondo__letra6,
+.container__fondo__letra7,
+.container__fondo__letra8 {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1067,7 +1079,7 @@ th{
   width: 100px;
   height: 100px;
   border-radius: 10px;
-  font-family: 'Mountains of Christmas',cursive;
+  font-family: 'Mountains of Christmas', cursive;
   background-color: #212227;
   border: 1px solid lime;
   box-shadow: 6px 6px 6px #000;
@@ -1084,20 +1096,43 @@ th{
 }
 
 @media screen and (min-width: 361px) {
-  .container__fondo__letra1, .container__fondo__letra2, .container__fondo__letra3, .container__fondo__letra4, .container__fondo__letra5, .container__fondo__letra6, .container__fondo__letra7, .container__fondo__letra8 {
+
+  .container__fondo__letra1,
+  .container__fondo__letra2,
+  .container__fondo__letra3,
+  .container__fondo__letra4,
+  .container__fondo__letra5,
+  .container__fondo__letra6,
+  .container__fondo__letra7,
+  .container__fondo__letra8 {
     width: 80px;
     height: 80px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .container__fondo__letra1, .container__fondo__letra2, .container__fondo__letra3, .container__fondo__letra4, .container__fondo__letra5, .container__fondo__letra6, .container__fondo__letra7, .container__fondo__letra8 {
+
+  .container__fondo__letra1,
+  .container__fondo__letra2,
+  .container__fondo__letra3,
+  .container__fondo__letra4,
+  .container__fondo__letra5,
+  .container__fondo__letra6,
+  .container__fondo__letra7,
+  .container__fondo__letra8 {
     width: 100px;
     height: 100px;
   }
 }
 
-.container__fondo__letra1:hover, .container__fondo__letra2:hover, .container__fondo__letra3:hover, .container__fondo__letra4:hover, .container__fondo__letra5:hover, .container__fondo__letra6:hover, .container__fondo__letra7:hover, .container__fondo__letra8:hover {
+.container__fondo__letra1:hover,
+.container__fondo__letra2:hover,
+.container__fondo__letra3:hover,
+.container__fondo__letra4:hover,
+.container__fondo__letra5:hover,
+.container__fondo__letra6:hover,
+.container__fondo__letra7:hover,
+.container__fondo__letra8:hover {
   transform: rotate(20deg);
   background-color: #fff;
   color: #000;
@@ -1169,4 +1204,5 @@ th{
   width: 100%;
   min-height: 100%;
 }
+
 /*# sourceMappingURL=styles.css.map */
