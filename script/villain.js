@@ -1,4 +1,10 @@
 const contenedor = document.getElementById('contenedor')
+const mensaje = document.getElementById('mensaje')
+let BdVillains
+let solicitud = indexedDB.open('personajes')
+solicitud.onsuccess = (e) => {
+    BdVillains = e.target.result
+}
 const getHeros = async () => {
     try {
         const response = await fetch('https://akabab.github.io/superhero-api/api/all.json')
@@ -68,7 +74,7 @@ const mod = () => {
     for (const cards of secciones) {
         // const img = document.createElement('img')
         cards.addEventListener('click', () => {
-            modal.classList.add('show')
+            //modal.classList.add('show')
             fetch(`https://akabab.github.io/superhero-api/api/id/${cards.childNodes[0].textContent}.json`)
                 .then(res => res.json())
                 .then(data => {
@@ -127,10 +133,13 @@ const getAll = async () => {
             const name = document.createElement("p");
             const title = document.createElement("p");
             const numero = document.createElement("span");
+            const spanAdd = document.createElement('div')
             const boton = document.createElement('button')
             boton.textContent = 'Ver información'
             boton.classList.add('boton')
             numero.textContent = heros.id;
+            spanAdd.textContent = ''
+            spanAdd.classList.add('agregar')
             card.classList.add("card");
             name.textContent = heros.name;
             title.textContent = "Características";
@@ -159,6 +168,7 @@ const getAll = async () => {
             powerStat.appendChild(li_combat);
             powerStat.appendChild(li_equipo);
             card.appendChild(numero);
+            card.appendChild(spanAdd)
             card.appendChild(name);
             card.appendChild(img);
             card.appendChild(title);
@@ -167,7 +177,31 @@ const getAll = async () => {
             fragment.appendChild(card);
 
         }
-        contenedor.appendChild(fragment)
+    }
+    contenedor.appendChild(fragment)
+    const favo = document.querySelectorAll('.agregar')
+    for (const favoVillain of favo) {
+        favoVillain.addEventListener('click', (e) => {
+            favoVillain.classList.toggle('active')
+            let id = parseInt(favoVillain.previousSibling.textContent)
+            let nombre = favoVillain.nextSibling.textContent
+            let transaction = BdVillains.transaction('tabla', 'readwrite').objectStore('tabla')
+            if (favoVillain.classList.contains('active')) {
+                let agregar = transaction.add({ id: id, nombre: nombre })
+            } else {
+                agregar = transaction.delete(id)
+            }
+            if (favoVillain.classList.contains('active')) {
+                mensaje.textContent = 'Personajes agregado a favorito'
+                mensaje.classList.add('confirmar')
+                setTimeout(() => {
+                    mensaje.classList.remove('confirmar')
+                    e.preventDefault()
+                }, 3000)
+            } else {
+                mensaje.classList.remove('confirmar')
+            }
+        })
     }
     mod()
 

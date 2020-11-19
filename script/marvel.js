@@ -1,5 +1,10 @@
 const contenedor = document.getElementById('contenedor')
-
+const mensaje = document.getElementById('mensaje')
+let BdMar
+let solicitud = indexedDB.open('personajes')
+solicitud.onsuccess = (e) => {
+  BdMar = e.target.result
+}
 const getMarvel = async () => {
   try {
     const res = await fetch('https://akabab.github.io/superhero-api/api/all.json')
@@ -30,7 +35,7 @@ const modal = () => {
 //---------------------------
   for (const cardsMarvel of sectionDc) {
     cardsMarvel.addEventListener('click', () => {
-      modal.classList.add('show')
+      //modal.classList.add('show')
       fetch(`https://akabab.github.io/superhero-api/api/id/${cardsMarvel.childNodes[0].textContent}.json`)
         .then(res => res.json())
         .then(data => {
@@ -86,10 +91,13 @@ const getAllMarvel = (data) => {
       const name = document.createElement("p");
       const title = document.createElement("p");
       const numero = document.createElement("span");
+      const spanAdd = document.createElement('div')
       const boton = document.createElement('button')
       boton.textContent  = 'Ver información'
       boton.classList.add('boton')
       numero.textContent = marvelComics.id;
+      spanAdd.textContent = ''
+      spanAdd.classList.add('agregar')
       card.classList.add("card");
       name.textContent = marvelComics.name;
       title.textContent = "Características";
@@ -118,6 +126,7 @@ const getAllMarvel = (data) => {
       powerStat.appendChild(li_combat);
       powerStat.appendChild(li_equipo);
       card.appendChild(numero);
+      card.appendChild(spanAdd)
       card.appendChild(name);
       card.appendChild(img);
       card.appendChild(title);
@@ -127,6 +136,30 @@ const getAllMarvel = (data) => {
     }
   }
   contenedor.appendChild(fragment)
+  const favo = document.querySelectorAll('.agregar')
+  for (const favoMarvel of favo) {
+    favoMarvel.addEventListener('click', (e) => {
+      favoMarvel.classList.toggle('active')
+      let id = parseInt(favoMarvel.previousSibling.textContent)
+      let nombre = favoMarvel.nextSibling.textContent
+      let transaction = BdMar.transaction('tabla', 'readwrite').objectStore('tabla')
+      if (favoMarvel.classList.contains('active')) {
+        let agregar = transaction.add({ id: id, nombre: nombre })
+      } else {
+        agregar = transaction.delete(id)
+      }
+      if (favoMarvel.classList.contains('active')) {
+        mensaje.textContent = 'Personajes agregado a favorito'
+        mensaje.classList.add('confirmar')
+        setTimeout(() => {
+          mensaje.classList.remove('confirmar')
+          e.preventDefault()
+        }, 3000)
+      } else {
+        mensaje.classList.remove('confirmar')
+      }
+    })
+  }
   modal()
 }
 

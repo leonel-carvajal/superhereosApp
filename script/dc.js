@@ -1,5 +1,10 @@
 const contenedor = document.getElementById('contenedor')
-
+const mensaje = document.getElementById('mensaje')
+let BdDC
+let solicitud = indexedDB.open('personajes')
+solicitud.onsuccess = (e)=>{
+  BdDC = e.target.result
+}
 const getDc = async () => {
   try {
     const res = await fetch('https://akabab.github.io/superhero-api/api/all.json')
@@ -30,7 +35,7 @@ const modal = ()=>{
     }
     for (const cardsDC of sectionDc) {
       cardsDC.addEventListener('click',()=>{
-        modal.classList.add('show')
+        //modal.classList.add('show')
         fetch(`https://akabab.github.io/superhero-api/api/id/${cardsDC.childNodes[0].textContent}.json`)
         .then(res=>res.json())
         .then(data=>{
@@ -86,10 +91,13 @@ const getAllDc = (data) => {
       const name = document.createElement("p");
       const title = document.createElement("p");
       const numero = document.createElement("span");
+      const spanAdd = document.createElement('div')
       const boton =document.createElement('button')
       boton.textContent = 'Ver información'
       boton.classList.add('boton')
       numero.textContent = dcComics.id;
+      spanAdd.textContent = ''
+      spanAdd.classList.add('agregar')
       card.classList.add("card");
       name.textContent = dcComics.name;
       title.textContent = "Características";
@@ -118,6 +126,7 @@ const getAllDc = (data) => {
       powerStat.appendChild(li_combat);
       powerStat.appendChild(li_equipo);
       card.appendChild(numero);
+      card.appendChild(spanAdd)
       card.appendChild(name);
       card.appendChild(img);
       card.appendChild(title);
@@ -127,6 +136,30 @@ const getAllDc = (data) => {
     }
   }
   contenedor.appendChild(fragment)
+  const favo = document.querySelectorAll('.agregar')
+  for (const favDc of favo) {
+    favDc.addEventListener('click',(e)=>{
+      favDc.classList.toggle('active')
+      let id = parseInt(favDc.previousSibling.textContent)
+      let nombre = favDc.nextSibling.textContent
+      let transaction = BdDC.transaction('tabla','readwrite').objectStore('tabla')
+        if(favDc.classList.contains('active')){
+          let agregar = transaction.add({id:id,nombre:nombre})
+        }else{
+          agregar = transaction.delete(id)
+        }
+      if (favDc.classList.contains('active')) {
+        mensaje.textContent = 'Personajes agregado a favorito'
+        mensaje.classList.add('confirmar')
+        setTimeout(() => {
+          mensaje.classList.remove('confirmar')
+          e.preventDefault()
+        }, 3000)
+      } else {
+        mensaje.classList.remove('confirmar')
+      }
+    })
+  }
   modal()
 }
 

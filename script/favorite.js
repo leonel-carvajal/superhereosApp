@@ -6,7 +6,7 @@ const comenzar = () => {
   let elementos = []
   database = indexedDB.open('personajes')
   database.onsuccess = (e) => {
-    datos = bd = e.target.result
+    datos = e.target.result
     let tranns = datos.transaction('tabla').objectStore('tabla')
     let cursor = tranns.openCursor().onsuccess= ((e)=>{
       let cur = e.target.result
@@ -37,10 +37,13 @@ const favCharacters = (datosFav)=>{
   const name = document.createElement("p");
   const title = document.createElement("p");
   const numero = document.createElement("span");
+  const spanAdd = document.createElement('div')
   const boton = document.createElement('button');
   boton.classList.add('boton')
   boton.textContent = 'Ver información'
   numero.textContent = datosFav.id;
+  spanAdd.textContent = 'Eliminar'
+  spanAdd.classList.add('btn-eliminar')
   card.classList.add("card");
   name.textContent = datosFav.name;
   title.textContent = "Características";
@@ -69,6 +72,7 @@ const favCharacters = (datosFav)=>{
   powerStat.appendChild(li_combat);
   powerStat.appendChild(li_equipo);
   card.appendChild(numero);
+  card.appendChild(spanAdd)
   card.appendChild(name);
   card.appendChild(img);
   card.appendChild(title);
@@ -77,6 +81,7 @@ const favCharacters = (datosFav)=>{
   fragment.appendChild(card);
   contenedor.appendChild(fragment)
 }
+
 const pintarModal = ()=>{
   const secciones = document.getElementsByTagName('section')
   const modal = document.getElementById('modal')
@@ -90,7 +95,7 @@ const pintarModal = ()=>{
   const modalBio = document.getElementById('modal_bio')
   const modalWork = document.getElementById('modal_work')
   const modalConexion = document.getElementById('modal_conexion')
-
+  const mensaje = document.getElementById('mensaje')
   const botones = document.querySelectorAll('button')
   for (const btn of botones) {
     btn.addEventListener('click', (e) => {
@@ -98,6 +103,22 @@ const pintarModal = ()=>{
       modal.classList.add('show')
     })
   }
+  const botonEliminar = document.querySelectorAll('.btn-eliminar')
+    for (const eliminar of botonEliminar) {
+      eliminar.addEventListener('click',(e)=>{
+        let id = parseInt(eliminar.previousSibling.textContent)
+        let transaction = datos.transaction('tabla','readwrite').objectStore('tabla')
+        transaction.delete(id)
+        mensaje.textContent = 'Personaje Eliminado de favoritos'
+        mensaje.classList.add('confirmar')
+        setTimeout(() => {
+          mensaje.classList.remove('confirmar')
+          e.preventDefault()
+        }, 3000)
+        eliminar.parentElement.remove()
+        
+      })
+    }
   for (const cards of secciones) {
     cards.addEventListener('click',(e)=>{
       fetch(`https://akabab.github.io/superhero-api/api/id/${cards.childNodes[0].textContent}.json`)
