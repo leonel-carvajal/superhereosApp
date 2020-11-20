@@ -193,10 +193,13 @@ const filterName = async (data) => {
         const name = document.createElement("p");
         const title = document.createElement("p");
         const numero = document.createElement("span");
+        const spanAdd = document.createElement('div')
         const boton = document.createElement('button')
         boton.textContent = 'Ver informacion'
         boton.classList.add('boton')
         numero.textContent = datos[i].id;
+        spanAdd.textContent = ''
+        spanAdd.classList.add('agregar')
         card.classList.add("card");
         card.setAttribute('id', 'card')
         name.textContent = datos[i].name;
@@ -227,6 +230,7 @@ const filterName = async (data) => {
         powerStat.appendChild(li_combat);
         powerStat.appendChild(li_equipo);
         card.appendChild(numero);
+        card.appendChild(spanAdd)
         card.appendChild(name);
         card.appendChild(img);
         card.appendChild(title);
@@ -235,21 +239,40 @@ const filterName = async (data) => {
         card.classList.toggle('find')
         fragment.appendChild(card);
       }
-      contenedor.appendChild(fragment)
+    }
+    contenedor.appendChild(fragment)
+    const favo = document.querySelectorAll('.agregar')
+    for (const favoritos of favo) {
+      favoritos.addEventListener('click', (e) => {
+        favoritos.classList.toggle('active')
+
+        let id = parseInt(favoritos.previousSibling.textContent)
+        let nombre = favoritos.nextSibling.textContent
+        let transaccion = bd.transaction('tabla', 'readwrite').objectStore('tabla')
+        if (favoritos.classList.contains('active')) {
+          let agregar = transaccion.add({ id: id, nombre: nombre })
+        } else {
+          agregar = transaccion.delete(id)
+        }
+
+        if (favoritos.classList.contains('active')) {
+          mensaje.textContent = 'Personajes agregado a favorito'
+          mensaje.classList.add('confirmar')
+          setTimeout(() => {
+            mensaje.classList.remove('confirmar')
+            e.preventDefault()
+          }, 3000)
+        } else {
+          mensaje.classList.remove('confirmar')
+        }
+      })
     }
     f()
   } else {
     contenedor.innerHTML = ''
     paintCharacters(25)
   }
-  const secciones = document.getElementsByTagName('section')
-  const modal = document.getElementById('modal')
-
-  // for (const cards of secciones) {
-  //   cards.addEventListener('click', () => {
-  //     modal.classList.add('show')
-  //   })
-  // }
+  
   modal.addEventListener('click', () => {
     modal.classList.remove('show')
   })
@@ -292,6 +315,6 @@ const imagenes = () => {
     if (cont > ultima || cont == ultima) {
       cont = 0
     }
-  }, 5000)
+  }, 10000)
 }
 imagenes()
