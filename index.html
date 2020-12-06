@@ -20,7 +20,7 @@
 
 <body>
     <main>
-        <div class="barra" id="barra">
+        <nav class="barra" id="barra">
             <ul class="barra__opciones">
                 <a href="/pages/marvel.html">
                     <li class="barra__opciones__item">Marvel Comics</li>
@@ -38,8 +38,8 @@
                     <li class="barra__opciones__item">Favoritos</li>
                 </a>
             </ul>
-        </div>
-        <div class="buscar">
+        </nav>
+        <section class="buscar">
             <input type="search" name="buscar" id="buscar" class="buscar__input" placeholder="Buscar por nombre" autocomplete="true">
             <select name="rangos" id="rangos" class="buscar__rangos">
                 <option value="0">-Filtro-</option>
@@ -51,13 +51,13 @@
                 <option value="400">400</option>
                 <option value="562">Todos</option>
             </select>
-        </div>
+        </section>
         <article class="contenedor" id="contenedor">
         </article>
         <div class="modal" id="modal">
             <div class="modal__content" id="modal__content">
                 <div id="titulos" class="modal__content__titulos">
-                    <p id="modal_name" class="titulos__name"></p>
+                    <h2 id="modal_name" class="titulos__name"></h2>
                     <img src="" alt="" id="img1">
                 </div>
                 <div class="modal__content__caracteristicas" id="chart">
@@ -112,14 +112,14 @@
             </div>
         </div>
     </main>
-    <div class="footer">
+    <footer class="footer">
         <ul class="footer__paginacion">
             <a href=""><li class="footer__paginacion__item">1</li><a>
             <a href=""><li class="footer__paginacion__item">2</li><a>
             <a href=""><li class="footer__paginacion__item">3</li><a>
             <a href=""><li class="footer__paginacion__item">4</li><a>
         </ul>
-    </div>
+    </footer>
     <!-- //<script src="https://kit.fontawesome.com/9dd8b341bf.js" crossorigin="anonymous"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/script/script.js" type="module"></script>

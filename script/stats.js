@@ -108,17 +108,17 @@ const grafico = (n1=0, n2=0, n3=0, n4=0, n5=0,n6=0) => {
 
     function drawChart() {
         let data = google.visualization.arrayToDataTable([
-            ['Stats', 'powerstats',{role:'style'},{role:'annotation'}],
-            ['Intelligence', n1,'blue','In'],
-            ['Strengt', n2,'red','St'],
-            ['Speed', n3,'yellow','Spe'],
-            ['Durability', n4,'crimson','Dur'],
-            ['Power', n5,'black','Po'],
-            ['Combat', n6, 'stroke-color: #703593; stroke-width: 2; fill-color: #C5A5CF','Co']
+            ['Stats', '',{role:'style'},{role:'annotation'}],
+            ['Inteligencia', n1,'blue','In'],
+            ['Fuerza', n2,'red','St'],
+            ['Velocidad', n3,'yellow','Spe'],
+            ['Durabilidad', n4,'crimson','Dur'],
+            ['Poder', n5,'black','Po'],
+            ['Combate', n6, 'stroke-color: #703593; stroke-width: 2; fill-color: #C5A5CF','Co']
         ]);
 
         let options = {
-            title: 'Stats',
+            title: 'Estadistícas',
             titleTextStyle:{
                 color:'royalblue',
                 fontSize:24,

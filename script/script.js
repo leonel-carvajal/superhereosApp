@@ -105,8 +105,8 @@ const pintar = async (rango = 0) => {
   const fragment = document.createDocumentFragment();
   for (let i = 1; i <= rango; i++) {
     const card = document.createElement("section");
-    const name = document.createElement("p");
-    const title = document.createElement("p");
+    const name = document.createElement("h2");
+    const title = document.createElement("h3");
     const numero = document.createElement("span");
     const spanAdd = document.createElement('div')
     const boton = document.createElement('button');
@@ -117,6 +117,8 @@ const pintar = async (rango = 0) => {
     spanAdd.classList.add('agregar')
     card.classList.add("card");
     name.textContent = data[i].name;
+    name.classList.add('h2')
+    title.classList.add('h2')
     title.textContent = "Características";
     const powerStat = document.createElement("ul");
     const li_intelligence = document.createElement("li");
@@ -190,8 +192,8 @@ const filterName = async (data) => {
       if (datos[i].name === data) {
         contenedor.innerHTML = ''
         const card = document.createElement("section");
-        const name = document.createElement("p");
-        const title = document.createElement("p");
+        const name = document.createElement('h2');
+        const title = document.createElement('h3');
         const numero = document.createElement("span");
         const spanAdd = document.createElement('div')
         const boton = document.createElement('button')
@@ -203,6 +205,8 @@ const filterName = async (data) => {
         card.classList.add("card");
         card.setAttribute('id', 'card')
         name.textContent = datos[i].name;
+        name.classList.add('h2')
+        title.classList.add('h2')
         title.textContent = "Datos";
         const powerStat = document.createElement("ul");
         const li_intelligence = document.createElement("li");
@@ -221,7 +225,7 @@ const filterName = async (data) => {
         li_equipo.textContent = `Editora: ${datos[i].biography.publisher}`;
         const img = document.createElement("img");
         img.src = `${datos[i].images.md}`;
-        const link = document.createElement('a')
+        //const link = document.createElement('a')
         powerStat.appendChild(li_intelligence);
         powerStat.appendChild(li_strenght);
         powerStat.appendChild(li_speed);
