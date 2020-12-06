@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/dist/css/styles.css">
+  <link rel="stylesheet" href="/dist/css/splide.min.css">
   <title>Teams</title>
   <style>
-    .barra{
-      background-image: none;
-      z-index: -1;
-      height: 70vh;
+    .barra {
+      background-image: url('/img/dccomics.jpg');
+      background-attachment: fixed;
+      background-position: center top;
     }
+
   </style>
 </head>
 <header class="header">
-<nav class="navbar">
-  <a href="/pages/heroes.html" class="navbar__item">Heróes</a>
-  <a href="/pages/villains.html" class="navbar__item">Villanos</a>
-  <a href="/pages/temas.html" class="navbar__item">Equipos</a>
-  <a href="/pages/stats.html" class="navbar__item">Estadisticas</a>
-</nav>
+  <nav class="navbar">
+    <a href="/pages/heroes.html" class="navbar__item">Heróes</a>
+    <a href="/pages/villains.html" class="navbar__item">Villanos</a>
+    <a href="/pages/temas.html" class="navbar__item">Equipos</a>
+    <a href="/pages/stats.html" class="navbar__item">Estadisticas</a>
+  </nav>
 </header>
+
 <body>
   <main>
     <div class="barra" id="barra">
+      <h1>Proximamente</h1>
       <ul class="barra__opciones">
         <a href="/pages/marvel.html">
           <li class="barra__opciones__item">Marvel Comics</li>
@@ -44,13 +49,19 @@
     </div>
   </main>
   <div class="footer">
-        <ul class="footer__paginacion">
-            <a href=""><li class="footer__paginacion__item">1</li><a>
-            <a href=""><li class="footer__paginacion__item">2</li><a>
-            <a href=""><li class="footer__paginacion__item">3</li><a>
-            <a href=""><li class="footer__paginacion__item">4</li><a>
-        </ul>
-    </div>
+    <ul class="footer__paginacion">
+      <a href="">
+        <li class="footer__paginacion__item">1</li><a>
+          <a href="">
+            <li class="footer__paginacion__item">2</li><a>
+              <a href="">
+                <li class="footer__paginacion__item">3</li><a>
+                  <a href="">
+                    <li class="footer__paginacion__item">4</li><a>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
   <script src="/script/team.js"></script>
 </body>
+
 </html>
