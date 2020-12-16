@@ -2,6 +2,7 @@
 let database = null
 let datos
 const contenedor = document.getElementById("contenedor");
+const botonUp = document.getElementById('boton-up')
 const comenzar = () => {
   let elementos = []
   database = indexedDB.open('personajes')
@@ -168,18 +169,20 @@ const pintarModal = ()=>{
   modal_content.appendChild(fragment2)
   modal.addEventListener('click',()=>modal.classList.remove('show'))
 }
+window.addEventListener('scroll', () => {
+  let scrollTop = document.documentElement.scrollTop
+  if (scrollTop > 700) {
+    botonUp.classList.remove('boton-of')
+  } else {
+    botonUp.classList.add('boton-of')
+  }
+  console.log(scrollTop)
+})
+botonUp.addEventListener('click', () => {
+  window.scrollTo({
+    behavior: 'smooth',
+    top: 0
+  })
+})
 
 window.addEventListener('DOMContentLoaded',comenzar)
-
-// window.addEventListener('beforeunload', () => {
-//   let req = indexedDB.deleteDatabase('personajes')
-//   req.onsuccess = () => {
-//     console.log('Base de datos borrada')
-//   }
-//   req.onerror = () => {
-//     console.log('no se pudo borar base de datos')
-//   }
-//   req.onblocked = () => {
-//     console.log('Nose pudo borrar base de datos|| operación bloqueada')
-//   }
-// })

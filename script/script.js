@@ -323,6 +323,7 @@ const imagenes = () => {
   }, 10000)
 }
 imagenes()
+
 window.addEventListener('scroll', () => {
   let scrollTop = document.documentElement.scrollTop
   if (scrollTop > 700) {

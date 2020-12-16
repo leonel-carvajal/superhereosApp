@@ -2,6 +2,7 @@ const contenedor = document.getElementById('contenedor')
 const mensaje = document.getElementById('mensaje')
 let BdVillains
 let solicitud = indexedDB.open('personajes')
+const botonUp = document.getElementById('boton-up')
 solicitud.onsuccess = (e) => {
     BdVillains = e.target.result
 }
@@ -206,4 +207,19 @@ const getAll = async () => {
     mod()
 
 }
+window.addEventListener('scroll', () => {
+    let scrollTop = document.documentElement.scrollTop
+    if (scrollTop > 700) {
+        botonUp.classList.remove('boton-of')
+    } else {
+        botonUp.classList.add('boton-of')
+    }
+    console.log(scrollTop)
+})
+botonUp.addEventListener('click', () => {
+    window.scrollTo({
+        behavior: 'smooth',
+        top: 0
+    })
+})
 window.addEventListener('DOMContentLoaded', getAll)
