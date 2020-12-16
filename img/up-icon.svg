@@ -1,0 +1,7 @@
+<svg id="up-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Elipse_1" data-name="Elipse 1" fill="#666" stroke="#000" stroke-width="1">
+    <circle cx="20" cy="20" r="20" stroke="none"/>
+    <circle cx="20" cy="20" r="19.5" fill="none"/>
+  </g>
+  <path id="arrow-up-solid" d="M6.99,43.446l-1.017-.991a1.048,1.048,0,0,1,0-1.513l8.9-8.678a1.115,1.115,0,0,1,1.553,0l8.9,8.673a1.048,1.048,0,0,1,0,1.513l-1.017.991a1.121,1.121,0,0,1-1.571-.018L17.485,38.05V50.879a1.083,1.083,0,0,1-1.1,1.071H14.919a1.083,1.083,0,0,1-1.1-1.071V38.05L8.561,43.429A1.113,1.113,0,0,1,6.99,43.446Z" transform="translate(4.35 -21.95)" fill="#ff2e59" stroke="#000" stroke-width="2"/>
+</svg>

@@ -41,3 +41,19 @@
         }
     }
 }
+.fas{
+    font-size: 2rem;
+    color: #fff;
+    position:fixed;
+    z-index: 999;
+    bottom: 1vh;
+    right: 10px;
+    transition: opacity 0.8s;
+    &:hover{
+        cursor: pointer;
+        color: lime;
+    }
+}
+.boton-of{
+    opacity: 0;
+}

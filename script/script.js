@@ -4,6 +4,7 @@ const rangos = document.getElementById('rangos')
 const buscar = document.getElementById('buscar')
 const mensaje = document.getElementById('mensaje')
 const barra = document.getElementById('barra')
+const botonUp = document.getElementById('boton-up')
 let rango
 let bd
 let contador = 0
@@ -322,3 +323,18 @@ const imagenes = () => {
   }, 10000)
 }
 imagenes()
+window.addEventListener('scroll', () => {
+  let scrollTop = document.documentElement.scrollTop
+  if (scrollTop > 700) {
+      botonUp.classList.remove('boton-of')
+  } else{
+    botonUp.classList.add('boton-of')
+  }
+  console.log(scrollTop)
+})
+botonUp.addEventListener('click', () => {
+  window.scrollTo({
+    behavior: 'smooth',
+    top: 0
+  })
+})
