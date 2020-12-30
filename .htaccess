@@ -11,3 +11,48 @@ Options +FollowSymLinks
 RewriteCond %{HTTP_HOST} ^www\.allsuperhero\.com$ [NC]
 
 RewriteRule ^(.*)$ https://allsuperhero.com/$1 [R=301,L]
+<files .htaccess>
+
+order allow,deny
+
+deny from all
+
+</files>
+#denegar el acceso a un directorio
+
+deny from all
+evita el hotlink
+
+RewriteEngine on
+
+RewriteCond %{HTTP_REFERER} !^$
+
+RewriteCond %{HTTP_REFERER} !^http://(www\.)allsuperhero\.com/.*$ [NC]
+
+RewriteRule .*\.(jpg|gif|bmp|png|mp4)$ [L]
+#comprimir archivos de texto, html, javascript, css, xml
+
+AddOutputFilterByType DEFLATE text/plain
+
+AddOutputFilterByType DEFLATE text/html
+
+AddOutputFilterByType DEFLATE text/xml
+
+AddOutputFilterByType DEFLATE text/css
+
+AddOutputFilterByType DEFLATE application/xml
+
+AddOutputFilterByType DEFLATE application/xhtml+xml
+
+AddOutputFilterByType DEFLATE application/rss+xml
+
+AddOutputFilterByType DEFLATE application/javascript
+
+AddOutputFilterByType DEFLATE application/x-javascript
+#Cache de imágenes en el navegador durante un mes
+
+<FilesMatch "\.(ico|jpg|jpeg|png|gif)$">
+
+Header set Cache-Control "max-age=2592000, public"
+
+</FilesMatch>
