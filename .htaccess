@@ -10,4 +10,4 @@ Options +FollowSymLinks
 
 RewriteCond %{HTTP_HOST} ^www\.allsuperhero\.com$ [NC]
 
-RewriteRule ^(.*)$ https://allsuperhero/$1 [R=301,L]
+RewriteRule ^(.*)$ https://allsuperhero.com/$1 [R=301,L]
